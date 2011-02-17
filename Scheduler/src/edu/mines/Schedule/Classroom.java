@@ -5,6 +5,12 @@ public class Classroom {
 	private String building;
 	private int maxCapacity;
 	
+	public Classroom(String roomNumber, String building, int maxCapacity){
+		this.roomNumber = roomNumber;
+		this.building = building;
+		this.maxCapacity = maxCapacity;
+	}
+	
 	public String getRoomNumber(){
 		return roomNumber;
 	}
