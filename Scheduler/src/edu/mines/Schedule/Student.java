@@ -1,14 +1,21 @@
 package edu.mines.Schedule;
 
-public class Student extends Person {
-	private Majors major;
+import java.util.ArrayList;
 
-	public Majors getMajor() {
-		return major;
+public class Student extends Person {
+	public Student(String name, String cwid, ArrayList<Majors> majors) {
+		super(name, cwid);
+		this.majors = majors;
 	}
 
-	public void setMajor(Majors major) {
-		this.major = major;
+	private ArrayList<Majors> majors;
+
+	public ArrayList<Majors> getMajor() {
+		return majors;
+	}
+
+	public void setMajor(ArrayList<Majors> majors) {
+		this.majors = majors;
 	}
 	
 }
