@@ -16,10 +16,13 @@ public class CourseMeeting {
 	}
 	
 	public Date getEndTime() {
-		// The length is in minutes, so lets convert that to milliseconds
-		long lengthMilli = meetingLength * 60000;
-		long endTime = meetingTime.getTime() + lengthMilli;
+		long endTime = meetingTime.getTime() + getMilliSeconds(meetingLength);
 		return new Date(endTime);
+	}
+	
+	public static long getMilliSeconds(int num)
+	{
+		return 60000*num;
 	}
 	
 	public Course getCourse() {
@@ -58,6 +61,10 @@ public class CourseMeeting {
 		return getCourse() + " " + getClassroom() + " " + getMeetingTime() 
 		+ " " + getMeetingLength();
 		
+	}
+	
+	private boolean overlap(CourseMeeting otherMeeting) {
+		return false;
 	}
 
 }

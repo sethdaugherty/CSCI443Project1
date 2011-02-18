@@ -9,7 +9,8 @@ public class StudentTest extends TestCase {
 	public static final String DEFAULT_STUDENT_CWID = "12345678";
 	public static final ArrayList<Major> DEFAULT_STUDENT_MAJORS = new ArrayList<Major>();
 	public static final Major DEFAULT_STUDENT_MAJOR = Major.CompSci;
-	public static final ArrayList<Course> DEFAULT_STUDENT_PREV_COURSES = new ArrayList<Course>();
+	public static final ArrayList<Course> DEFAULT_STUDENT_PREV_COURSES = CourseTest.DEFAULT_PRE_REQS;
+	public static final ArrayList<Course> DEFAULT_STUDENT_PREV_COURSES_2 = CourseTest.DEFAULT_PRE_REQS_2;
 	static {
 		DEFAULT_STUDENT_MAJORS.add(DEFAULT_STUDENT_MAJOR);
 	}
@@ -19,7 +20,15 @@ public class StudentTest extends TestCase {
 	 */
 	public static Student createStudent() {
 		Student student = new Student(DEFAULT_STUDENT_NAME,
-				DEFAULT_STUDENT_CWID, DEFAULT_STUDENT_MAJORS, DEFAULT_STUDENT_PREV_COURSES);
+				DEFAULT_STUDENT_CWID, DEFAULT_STUDENT_MAJORS,
+				DEFAULT_STUDENT_PREV_COURSES);
+		return student;
+	}
+
+	public static Student createStudent2() {
+		Student student = new Student(DEFAULT_STUDENT_NAME,
+				DEFAULT_STUDENT_CWID, DEFAULT_STUDENT_MAJORS,
+				DEFAULT_STUDENT_PREV_COURSES_2);
 		return student;
 	}
 
