@@ -1,8 +1,14 @@
 package edu.mines.Schedule;
 
 public class Instructor extends Person {
-
-	public Instructor(String name, String cwid) {
+	private final Department department;
+	
+	public Instructor(String name, String cwid, Department department) {
 		super(name, cwid);
+		this.department = department;
+	}
+	
+	public Department getDepartment() {
+		return department;
 	}
 }
