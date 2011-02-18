@@ -12,9 +12,4 @@ public class DepartmentTest extends TestCase {
 		department.addMajor(major);
 		assertEquals("Majors should be empty", department.getMajors().contains(major), true);
 	}
-
-	public void testRemoveMajor() {
-		fail("Not yet implemented");
-	}
-
 }
