@@ -11,7 +11,9 @@ public class TeachingSessionTest extends TestCase {
 		ArrayList<String> books = new ArrayList<String>();
 		books.add("Effective Java");
 		
-		Instructor instructor = new Instructor("Noble Varughese", "123456789");
+		Department department = new Department("Computer Science", "CSCI");
+		
+		Instructor instructor = new Instructor("Noble Varughese", "123456789", department);
 		
 		Course course = new Course("CSCI 443", "Advanced Java", 3.0, books) ;
 		
@@ -30,6 +32,8 @@ public class TeachingSessionTest extends TestCase {
 				teachingSession.courseMeeting.getCourse());
 		assertEquals("Meeting time didn't match", MEETING_TIME,
 				teachingSession.courseMeeting.getMeetingTime());
+		assertEquals("Wrong department", department,
+				teachingSession.instructor.getDepartment());
 	}
 
 }
