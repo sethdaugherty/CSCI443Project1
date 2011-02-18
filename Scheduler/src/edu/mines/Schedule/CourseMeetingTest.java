@@ -10,7 +10,7 @@ public class CourseMeetingTest extends TestCase {
 	public static final String DEFAULT_CLASSROOM_BUILDING = "testBuilding";
 	public static final int DEFAULT_CLASSROOM_CAPACITY = 30;
 	// Jan 1, 2010 at 11:00 am
-	public static final Date DEFAULT_MEETING_TIME = new Date(2010, 1, 1, 11, 0);
+	public static final Date DEFAULT_MEETING_TIME = new Date(1262343600);
 	public static final int DEFAULT_MEETING_LENGTH = 50;
 	
 	/**

@@ -8,6 +8,20 @@ public class CourseMeeting {
 	private Date meetingTime;
 	private int meetingLength;
 	
+	public CourseMeeting(Course course, Classroom room, Date time, int length) {
+		this.course = course;
+		this.classroom = room;
+		this.meetingTime = time;
+		this.meetingLength = length;
+	}
+	
+	public Date getEndTime() {
+		// The length is in minutes, so lets convert that to milliseconds
+		long lengthMilli = meetingLength * 60000;
+		long endTime = meetingTime.getTime() + lengthMilli;
+		return new Date(endTime);
+	}
+	
 	public Course getCourse() {
 		return course;
 	}
@@ -39,13 +53,5 @@ public class CourseMeeting {
 	public void setMeetingLength(int length) {
 		this.meetingLength = length;
 	}
-
-	public CourseMeeting(Course course, Classroom room, Date time, int length) {
-		this.course = course;
-		this.classroom = room;
-		this.meetingTime = time;
-		this.meetingLength = length;
-	}
-
 
 }
