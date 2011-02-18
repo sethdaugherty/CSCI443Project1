@@ -12,6 +12,11 @@ public class TeachingSessionManager {
 	}
 
 	public void addSession(TeachingSession session) throws Exception {
+		if (!isInstructorInDepartment(session)) {
+			throw new Exception(
+					"The instructor isn't in the same department as the course");
+		}
+
 		if (hasTimeConflict(session)) {
 			throw new Exception("The instructor has a time conflict");
 		}
@@ -30,19 +35,46 @@ public class TeachingSessionManager {
 		Instructor newInstructor = session.getInstructor();
 		CourseMeeting newMeeting = session.getCourseMeeting();
 		// Loop through the list of sessions looking for this instructor
-		for( TeachingSession s : sessions ) {
+		for (TeachingSession s : sessions) {
 			Instructor oldInstructor = s.getInstructor();
 			System.out.println(oldInstructor + " " + newInstructor);
-			// This is the same instructor, so lets see if the classes are at the same time
-			if( newInstructor.toString().equals(oldInstructor.toString()) ) {
+			// This is the same instructor, so lets see if the classes are at
+			// the same time
+			if (newInstructor.toString().equals(oldInstructor.toString())) {
 				CourseMeeting oldMeeting = s.getCourseMeeting();
-				if( (oldMeeting.getMeetingTime().before(newMeeting.getMeetingTime()) && oldMeeting.getEndTime().after(newMeeting.getMeetingTime())) || (newMeeting.getMeetingTime().before(oldMeeting.getMeetingTime()) && newMeeting.getEndTime().after(oldMeeting.getMeetingTime()))) {
+				if ((oldMeeting.getMeetingTime().before(
+						newMeeting.getMeetingTime()) && oldMeeting.getEndTime()
+						.after(newMeeting.getMeetingTime()))
+						|| (newMeeting.getMeetingTime().before(
+								oldMeeting.getMeetingTime()) && newMeeting
+								.getEndTime()
+								.after(oldMeeting.getMeetingTime()))) {
 					return true;
 				}
 			}
 		}
-		
+
 		return false;
+	}
+
+	/**
+	 * Instructors can only teach classes in their department, so this method
+	 * checks if the instructor and the course in the session have the same
+	 * department
+	 * 
+	 * @param session
+	 * @return
+	 */
+	private boolean isInstructorInDepartment(TeachingSession session) {
+		Instructor instructor = session.getInstructor();
+		CourseMeeting meeting = session.getCourseMeeting();
+		System.out.println(meeting.getCourse().getDepartment());
+		if (instructor.getDepartment().toString().equals(
+				meeting.getCourse().getDepartment().toString())) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public static TeachingSessionManager getInstance() {
@@ -55,12 +87,12 @@ public class TeachingSessionManager {
 	public ArrayList<TeachingSession> getSessions() {
 		return sessions;
 	}
-	
+
 	public void clearData() {
 		sessions = new ArrayList<TeachingSession>();
 	}
-	
-    public static void main(String[] args) {
-        System.out.println("Hello World");
-    }
+
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+	}
 }

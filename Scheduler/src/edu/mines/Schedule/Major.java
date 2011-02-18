@@ -6,7 +6,8 @@ public enum Major {
 	CivilEngineering("Civil Engineering"), 
 	MechanicalEngineering("Mechanical Engineer"), 
 	ElectricalEngineering("Electrical Engineering"), 
-	Math("Mathematics");
+	Math("Mathematics"),
+	Physics("Physics");
 
 	private final String name;
 

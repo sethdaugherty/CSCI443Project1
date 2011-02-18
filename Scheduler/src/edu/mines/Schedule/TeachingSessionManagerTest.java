@@ -68,7 +68,23 @@ public class TeachingSessionManagerTest extends TestCase {
 		} catch (Exception e) {
 			assertTrue(true);
 		}
-
 	}
 
+	public void testAddDepartmentConflictTeachingSession() throws Exception {
+		CourseMeeting meeting = CourseMeetingTest.createMeeting();
+		Instructor instructor = InstructorTest.createPhysicsInstructor();
+		TeachingSession session = new TeachingSession(instructor, meeting);
+
+		TeachingSessionManager manager = TeachingSessionManager.getInstance();
+		manager.clearData();
+		// Add that session to the manager
+		try {
+			manager.addSession(session);
+			// We shouldn't be able to add the session, so if we get here, the
+			// test fails
+			fail();
+		} catch (Exception e) {
+			assertTrue(true);
+		}
+	}
 }
