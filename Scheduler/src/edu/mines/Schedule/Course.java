@@ -3,17 +3,19 @@ package edu.mines.Schedule;
 import java.util.ArrayList;
 
 public class Course{
-	public String courseNumber;
-	public String courseName;
-	public double numCredits;
-	public ArrayList<String> textBooks;
+	private String courseNumber;
+	private String courseName;
+	private double numCredits;
+	private ArrayList<String> textBooks;
+	private ArrayList<Course> preReqs;
 	
 	public Course(String courseNumber, String courseName, double numCredits,
-			ArrayList<String> textBooks){
+			ArrayList<String> textBooks, ArrayList<Course> preReqs){
 		this.courseNumber = courseNumber;
 		this.courseName = courseName;
 		this.numCredits = numCredits;
 		this.textBooks = textBooks;
+		this.preReqs = preReqs;
 	}
 	
 	public String getCourseNumber(){
@@ -48,5 +50,7 @@ public class Course{
 		this.textBooks = textBooks;
 	}
 	
-
+	public ArrayList<Course> getPreReqs() {
+		return preReqs;
+	}
 }

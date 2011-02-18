@@ -10,6 +10,8 @@ public class EnrollmentTest extends TestCase {
 			.createStudent();
 	private static CourseMeeting DEFAULT_ENROLLMENT_COURSE_MEETING = CourseMeetingTest
 			.createMeeting();
+	private static CourseMeeting DEFAULT_ENROLLMENT_COURSE_MEETING_2 = CourseMeetingTest
+			.createMeeting2();
 
 	/**
 	 * Helper method to set up a dummy Enrollment
@@ -17,6 +19,12 @@ public class EnrollmentTest extends TestCase {
 	public static Enrollment createEnrollment() {
 		Student student = DEFAULT_ENROLLMENT_STUDENT;
 		CourseMeeting courseMeeting = DEFAULT_ENROLLMENT_COURSE_MEETING;
+		return new Enrollment(student, courseMeeting);
+	}
+
+	public static Enrollment createEnrollment2() {
+		Student student = DEFAULT_ENROLLMENT_STUDENT;
+		CourseMeeting courseMeeting = DEFAULT_ENROLLMENT_COURSE_MEETING_2;
 		return new Enrollment(student, courseMeeting);
 	}
 

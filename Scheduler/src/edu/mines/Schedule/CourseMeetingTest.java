@@ -17,7 +17,15 @@ public class CourseMeetingTest extends TestCase {
 	 * Helper method to set up a dummy CourseMeeting
 	 */
 	public static CourseMeeting createMeeting() {
-		Course course = new Course("", "", 0.0, null);
+		Course course = CourseTest.createCourse();
+		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM, DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
+		CourseMeeting meeting = new CourseMeeting(course, room, DEFAULT_MEETING_TIME, DEFAULT_MEETING_LENGTH);
+
+		return meeting;
+	}
+	
+	public static CourseMeeting createMeeting2() {
+		Course course = CourseTest.createCourse2();
 		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM, DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
 		CourseMeeting meeting = new CourseMeeting(course, room, DEFAULT_MEETING_TIME, DEFAULT_MEETING_LENGTH);
 

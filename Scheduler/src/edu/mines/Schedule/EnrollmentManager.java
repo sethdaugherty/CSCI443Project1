@@ -19,7 +19,11 @@ public class EnrollmentManager {
 	}
 	
 	public void addEnrollment(Enrollment enrollment) {
-		checkTimeConflict(enrollment);
+		if (!checkPreReqs(enrollment))
+			throw new IllegalArgumentException("Must have the required pre-reqs");
+		
+		if (!checkTimeConflict(enrollment))
+			throw new IllegalArgumentException("Cannot have two classes at the same time");
 		
 		enrollments.add(enrollment);
 	}
@@ -28,8 +32,18 @@ public class EnrollmentManager {
 		return enrollments;
 	}
 	
+	public boolean checkPreReqs(Enrollment enrollment) {
+		ArrayList<Course> studentCourses = enrollment.getStudent().getCourses();
+		for(Course c : enrollment.getCourseMeeting().getCourse().getPreReqs()) {
+			if (!studentCourses.contains(c)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	public boolean checkTimeConflict(Enrollment enrollment) {
-		return false;
+		return true;
 	}
 
 }
