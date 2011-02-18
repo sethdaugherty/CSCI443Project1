@@ -9,6 +9,8 @@ public class EnrollmentManagerTest extends TestCase {
 			.createEnrollment();
 	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_2 = EnrollmentTest
 			.createEnrollment2();
+	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_3 = EnrollmentTest
+			.createEnrollment3();
 
 	/**
 	 * Helper method to set up a dummy EnrollmentManager
@@ -31,16 +33,25 @@ public class EnrollmentManagerTest extends TestCase {
 						DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_1), true);
 		assertEquals("Should have one enrollment", enrollmentManager
 				.getEnrollments().size(), 1);
+
+		enrollmentManager
+				.addEnrollment(DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_3);
+		assertEquals("Didn't add enrollment", enrollmentManager
+				.getEnrollments().contains(
+						DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_3), true);
+		assertEquals("Should have two enrollments", enrollmentManager
+				.getEnrollments().size(), 2);
+
 	}
 
 	public void testAddEnrollment_FailPrereqs() {
 		EnrollmentManager enrollmentManager = createEnrollmentManager();
-		
+
 		try {
-			enrollmentManager.addEnrollment(DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_2);
+			enrollmentManager
+					.addEnrollment(DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_2);
 			fail("Should have thrown exception");
-		}
-		catch (IllegalArgumentException e) {
+		} catch (IllegalArgumentException e) {
 			// Expect this
 		}
 	}

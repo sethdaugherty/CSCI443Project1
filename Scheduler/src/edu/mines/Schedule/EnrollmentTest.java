@@ -8,6 +8,8 @@ import junit.framework.TestCase;
 public class EnrollmentTest extends TestCase {
 	private static Student DEFAULT_ENROLLMENT_STUDENT = StudentTest
 			.createStudent();
+	private static Student DEFAULT_ENROLLMENT_STUDENT_2 = StudentTest
+			.createStudent2();
 	private static CourseMeeting DEFAULT_ENROLLMENT_COURSE_MEETING = CourseMeetingTest
 			.createMeeting();
 	private static CourseMeeting DEFAULT_ENROLLMENT_COURSE_MEETING_2 = CourseMeetingTest
@@ -24,6 +26,12 @@ public class EnrollmentTest extends TestCase {
 
 	public static Enrollment createEnrollment2() {
 		Student student = DEFAULT_ENROLLMENT_STUDENT;
+		CourseMeeting courseMeeting = DEFAULT_ENROLLMENT_COURSE_MEETING_2;
+		return new Enrollment(student, courseMeeting);
+	}
+
+	public static Enrollment createEnrollment3() {
+		Student student = DEFAULT_ENROLLMENT_STUDENT_2;
 		CourseMeeting courseMeeting = DEFAULT_ENROLLMENT_COURSE_MEETING_2;
 		return new Enrollment(student, courseMeeting);
 	}
