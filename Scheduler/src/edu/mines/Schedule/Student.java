@@ -15,13 +15,28 @@ public class Student extends Person {
 	public ArrayList<Major> getMajor() {
 		return majors;
 	}
-
-	public void setMajor(ArrayList<Major> majors) {
-		this.majors = majors;
-	}
 	
 	public ArrayList<Course> getCourses() {
 		return previousCourses;
 	}
 	
+	public String getStatus(){
+		double sum = 0;
+		for(Course course: previousCourses){
+			sum = course.getNumCredits();
+		}
+		if(sum < 30){
+			return "Freshman";
+		}
+		else if(sum < 60){
+			return "Sophmore";
+		}
+		else if(sum < 90){
+			return "Junior";
+		}
+		else
+			return "Senior";
+		}
 }
+	
+

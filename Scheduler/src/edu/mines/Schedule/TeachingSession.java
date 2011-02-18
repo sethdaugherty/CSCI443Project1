@@ -15,16 +15,8 @@ public class TeachingSession {
 		return instructor;
 	}
 
-	public void setInstructor(Instructor instructor) {
-		this.instructor = instructor;
-	}
-
 	public CourseMeeting getCourseMeeting() {
 		return courseMeeting;
-	}
-
-	public void setCourseMeeting(CourseMeeting meeting) {
-		this.courseMeeting = meeting;
 	}
 
 }
