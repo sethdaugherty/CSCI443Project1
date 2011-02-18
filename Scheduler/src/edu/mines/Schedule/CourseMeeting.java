@@ -53,5 +53,11 @@ public class CourseMeeting {
 	public void setMeetingLength(int length) {
 		this.meetingLength = length;
 	}
+	
+	public String toString(){
+		return getCourse() + " " + getClassroom() + " " + getMeetingTime() 
+		+ " " + getMeetingLength();
+		
+	}
 
 }
