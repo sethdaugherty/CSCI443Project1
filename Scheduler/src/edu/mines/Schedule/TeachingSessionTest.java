@@ -15,7 +15,7 @@ public class TeachingSessionTest extends TestCase {
 		
 		Instructor instructor = new Instructor("Noble Varughese", "123456789", department);
 		
-		Course course = new Course("CSCI 443", "Advanced Java", 3.0, books) ;
+		Course course = CourseTest.createCourse();
 		
 		Date MEETING_TIME = new Date(2010, 1, 1, 11, 0);
 		

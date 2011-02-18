@@ -8,8 +8,9 @@ public class Course{
 	private double numCredits;
 	private ArrayList<String> textBooks;
 	private ArrayList<Course> preReqs;
+	private Department department;
 	
-	public Course(String courseNumber, String courseName, double numCredits,
+	public Course(String courseNumber, String courseName, Department department, double numCredits,
 			ArrayList<String> textBooks, ArrayList<Course> preReqs){
 		this.courseNumber = courseNumber;
 		this.courseName = courseName;
@@ -22,35 +23,24 @@ public class Course{
 		return courseNumber;
 	}
 	
-	public void setCourseNumber(String courseNumber){
-		this.courseNumber = courseNumber;
-	}
-	
 	public String getCourseName(){
 		return courseName;
 	}
 	
-	public void setCourseName(String courseName){
-		this.courseName = courseName;
+	public Department getDepartment(){
+		return department;
 	}
 	
 	public double getNumCredits(){
 		return numCredits;
 	}
-	
-	public void setNumCredits(double numCredits){
-		this.numCredits = numCredits;
-	}
-	
+		
 	public ArrayList<String> getTextBooks(){
 		return textBooks;
-	}
-	
-	public void setTextBooks(ArrayList<String> textBooks){
-		this.textBooks = textBooks;
 	}
 	
 	public ArrayList<Course> getPreReqs() {
 		return preReqs;
 	}
+	
 }
