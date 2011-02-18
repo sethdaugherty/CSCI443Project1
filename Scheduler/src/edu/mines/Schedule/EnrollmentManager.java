@@ -18,7 +18,15 @@ public class EnrollmentManager {
 		return theInstance;
 	}
 
-	public void addEnrollment(Enrollment enrollment) {
+	/**
+	 * Add an enrollment object to the Enrollment Manager
+	 *  Also, checks if the enrollment is valid
+	 *   no student has courses at the same time
+	 *   student must have pre-reqs for the Course
+	 * 
+	 * @param enrollment
+	 */
+	public void addEnrollment(Enrollment enrollment) throws IllegalArgumentException {
 		if (!hasPreReqs(enrollment))
 			throw new IllegalArgumentException(
 					"Must have the required pre-reqs");
@@ -34,6 +42,14 @@ public class EnrollmentManager {
 		return enrollments;
 	}
 
+	
+	/**
+	 * Make sure the student in the given enrollment has the pre-reqs
+	 *  required for the Course in the enrollment's CourseMeeting
+	 * 
+	 * @param enrollment
+	 * @return
+	 */
 	private boolean hasPreReqs(Enrollment enrollment) {
 		ArrayList<Course> studentCourses = enrollment.getStudent().getCourses();
 		for (Course c : enrollment.getCourseMeeting().getCourse().getPreReqs()) {
@@ -45,7 +61,7 @@ public class EnrollmentManager {
 	}
 
 	/**
-	 * Make sure the student in the given enrollemnt doesn't have another
+	 * Make sure the student in the given enrollment doesn't have another
 	 * enrollment at the same time
 	 * 
 	 * @param enrollment
@@ -57,18 +73,11 @@ public class EnrollmentManager {
 		// Loop through the list of enrollments looking for this student
 		for (Enrollment s : enrollments) {
 			Student oldStudent = s.getStudent();
-			System.out.println(oldStudent + " " + newStudent);
 			// This is the same student, so lets see if the classes are at the
 			// same time
 			if (newStudent.toString().equals(oldStudent.toString())) {
 				CourseMeeting oldMeeting = s.getCourseMeeting();
-				if ((oldMeeting.getMeetingTime().before(
-						newMeeting.getMeetingTime()) && oldMeeting.getEndTime()
-						.after(newMeeting.getMeetingTime()))
-						|| (newMeeting.getMeetingTime().before(
-								oldMeeting.getMeetingTime()) && newMeeting
-								.getEndTime()
-								.after(oldMeeting.getMeetingTime()))) {
+				if (newMeeting.overlap(oldMeeting)) {
 					return true;
 				}
 			}

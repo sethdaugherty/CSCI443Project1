@@ -17,7 +17,7 @@ public class EnrollmentManagerTest extends TestCase {
 	 */
 	public static EnrollmentManager createEnrollmentManager() {
 		EnrollmentManager enrollmentManager = EnrollmentManager.getInstance();
-
+		enrollmentManager.getEnrollments().clear();
 		return enrollmentManager;
 	}
 
@@ -67,7 +67,5 @@ public class EnrollmentManagerTest extends TestCase {
 		} catch (IllegalArgumentException e) {
 			// Expect this
 		}
-
-		fail("Not yet implemented");
 	}
 }
