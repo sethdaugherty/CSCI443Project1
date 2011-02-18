@@ -32,16 +32,17 @@ public class TeachingSessionManager {
 		// Loop through the list of sessions looking for this instructor
 		for( TeachingSession s : sessions ) {
 			Instructor oldInstructor = s.getInstructor();
+			System.out.println(oldInstructor + " " + newInstructor);
 			// This is the same instructor, so lets see if the classes are at the same time
 			if( newInstructor.toString().equals(oldInstructor.toString()) ) {
 				CourseMeeting oldMeeting = s.getCourseMeeting();
 				if( (oldMeeting.getMeetingTime().before(newMeeting.getMeetingTime()) && oldMeeting.getEndTime().after(newMeeting.getMeetingTime())) || (newMeeting.getMeetingTime().before(oldMeeting.getMeetingTime()) && newMeeting.getEndTime().after(oldMeeting.getMeetingTime()))) {
-					return false;
+					return true;
 				}
 			}
 		}
 		
-		return true;
+		return false;
 	}
 
 	public static TeachingSessionManager getInstance() {
@@ -53,5 +54,9 @@ public class TeachingSessionManager {
 
 	public ArrayList<TeachingSession> getSessions() {
 		return sessions;
+	}
+	
+	public void clearData() {
+		sessions = new ArrayList<TeachingSession>();
 	}
 }
