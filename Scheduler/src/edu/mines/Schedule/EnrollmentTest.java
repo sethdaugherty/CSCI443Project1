@@ -6,18 +6,27 @@ import java.util.Date;
 import junit.framework.TestCase;
 
 public class EnrollmentTest extends TestCase {
-	
+	private static Student DEFAULT_ENROLLMENT_STUDENT = StudentTest
+			.createStudent();
+	private static CourseMeeting DEFAULT_ENROLLMENT_COURSE_MEETING = CourseMeetingTest
+			.createMeeting();
+
 	/**
 	 * Helper method to set up a dummy Enrollment
 	 */
 	public static Enrollment createEnrollment() {
-		Student student = StudentTest.createStudent();
-		CourseMeeting courseMeeting = CourseMeetingTest.createMeeting();
+		Student student = DEFAULT_ENROLLMENT_STUDENT;
+		CourseMeeting courseMeeting = DEFAULT_ENROLLMENT_COURSE_MEETING;
 		return new Enrollment(student, courseMeeting);
 	}
 
 	public void testCreateEnrollment() {
-		fail("Not yet implemented");
+		Enrollment enrollment = createEnrollment();
+
+		assertEquals("Student is incorrect", enrollment.getStudent(),
+				DEFAULT_ENROLLMENT_STUDENT);
+		assertEquals("CourseMeeting is incorrect", enrollment
+				.getCourseMeeting(), DEFAULT_ENROLLMENT_COURSE_MEETING);
 	}
 
 }

@@ -27,7 +27,7 @@ public class TeachingSessionManagerTest extends TestCase {
 			
 			if(instructor2.getName().equals(InstructorTest.DEFAULT_INSTRUCTOR_NAME) && instructor2.getCwid().equals(InstructorTest.DEFAULT_INSTRUCTOR_CWID) && meeting2.toString().equals(meeting.toString())) {
 				assertTrue(true);
-				break
+				break;
 			}
 		}
 	}
