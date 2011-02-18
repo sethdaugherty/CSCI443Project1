@@ -30,7 +30,7 @@ public class Department {
 	}
 	
 	public String toString(){
-		return getName() + " " + getCode();
+		return name + " " + code;
 	}
 	
 }

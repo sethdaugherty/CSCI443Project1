@@ -37,7 +37,6 @@ public class TeachingSessionManager {
 		// Loop through the list of sessions looking for this instructor
 		for (TeachingSession s : sessions) {
 			Instructor oldInstructor = s.getInstructor();
-			System.out.println(oldInstructor + " " + newInstructor);
 			// This is the same instructor, so lets see if the classes are at
 			// the same time
 			if (newInstructor.toString().equals(oldInstructor.toString())) {
@@ -68,7 +67,6 @@ public class TeachingSessionManager {
 	private boolean isInstructorInDepartment(TeachingSession session) {
 		Instructor instructor = session.getInstructor();
 		CourseMeeting meeting = session.getCourseMeeting();
-		System.out.println(meeting.getCourse().getDepartment());
 		if (instructor.getDepartment().toString().equals(
 				meeting.getCourse().getDepartment().toString())) {
 			return true;

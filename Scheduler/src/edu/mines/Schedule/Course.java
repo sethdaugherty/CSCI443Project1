@@ -14,6 +14,7 @@ public class Course{
 			ArrayList<String> textBooks, ArrayList<Course> preReqs){
 		this.courseNumber = courseNumber;
 		this.courseName = courseName;
+		this.department = department;
 		this.numCredits = numCredits;
 		this.textBooks = textBooks;
 		this.preReqs = preReqs;
