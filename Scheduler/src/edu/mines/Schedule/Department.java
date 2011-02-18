@@ -29,7 +29,4 @@ public class Department {
 		return majors.add(major);
 	}
 	
-	boolean removeMajor(Major major) {
-		return false;
-	}
 }
