@@ -9,8 +9,6 @@ public class EnrollmentManagerTest extends TestCase {
 			.createEnrollment();
 	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_2 = EnrollmentTest
 			.createEnrollment();
-	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_3 = EnrollmentTest
-			.createEnrollment();
 
 	/**
 	 * Helper method to set up a dummy EnrollmentManager
@@ -20,15 +18,7 @@ public class EnrollmentManagerTest extends TestCase {
 
 		return enrollmentManager;
 	}
-
-	public void testAddEnrollment_FailPrereqs() {
-		fail("Not yet implemented");
-	}
-
-	public void testAddEnrollment_FailTimeConflict() {
-		fail("Not yet implemented");
-	}
-
+	
 	public void testAddEnrollment_Pass() {
 		EnrollmentManager enrollmentManager = createEnrollmentManager();
 
@@ -43,4 +33,23 @@ public class EnrollmentManagerTest extends TestCase {
 				.getEnrollments().size(), 1);
 	}
 
+	public void testAddEnrollment_FailPrereqs() {
+		fail("Not yet implemented");
+	}
+
+	public void testAddEnrollment_FailTimeConflict() {
+		EnrollmentManager enrollmentManager = createEnrollmentManager();
+		enrollmentManager
+		.addEnrollment(DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_1);
+		try {
+			enrollmentManager.addEnrollment(DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_1);
+			fail();
+		}
+		catch (IllegalArgumentException e) {
+			// Expect this
+		}
+		
+		
+		fail("Not yet implemented");
+	}
 }

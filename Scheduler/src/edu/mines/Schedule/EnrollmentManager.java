@@ -19,11 +19,17 @@ public class EnrollmentManager {
 	}
 	
 	public void addEnrollment(Enrollment enrollment) {
+		checkTimeConflict(enrollment);
+		
 		enrollments.add(enrollment);
 	}
 
 	public ArrayList<Enrollment> getEnrollments() {
 		return enrollments;
+	}
+	
+	public boolean checkTimeConflict(Enrollment enrollment) {
+		return false;
 	}
 
 }
