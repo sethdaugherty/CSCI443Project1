@@ -21,6 +21,9 @@ public class CourseMeetingTest extends TestCase {
 	public static final Date DEFAULT_MEETING_TIME_LATER = new Date(
 			DEFAULT_MEETING_DATE_NUMBER
 					+ CourseMeeting.getMilliSeconds(DEFAULT_MEETING_LENGTH / 2));
+	public static final Date DEFAULT_MEETING_TIME_OTHER = new Date(
+			DEFAULT_MEETING_DATE_NUMBER
+					- CourseMeeting.getMilliSeconds(DEFAULT_MEETING_LENGTH*2));
 
 	/**
 	 * Helper method to set up a dummy CourseMeeting
@@ -72,6 +75,16 @@ public class CourseMeetingTest extends TestCase {
 
 		return meeting;
 	}
+	
+	public static CourseMeeting createMeetingOther() {
+		Course course = CourseTest.createCourse2();
+		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
+				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
+		CourseMeeting meeting = new CourseMeeting(course, room,
+				DEFAULT_MEETING_TIME_OTHER, DEFAULT_MEETING_LENGTH_2);
+
+		return meeting;
+	}
 
 	/**
 	 * Test that we can set up a course meeting correctly by creating a time,
@@ -94,7 +107,12 @@ public class CourseMeetingTest extends TestCase {
 		CourseMeeting normMeeting = createMeeting();
 		CourseMeeting longMeeting = createMeetingLong();
 		CourseMeeting otherMeeting = createMeetingOther();
-
+		
+		assertEquals("Should overlap", earlyMeeting.overlap(normMeeting), true);
+		assertEquals("Should overlap", lateMeeting.overlap(normMeeting), true);
+		assertEquals("Should overlap", longMeeting.overlap(normMeeting), true);
+		assertEquals("Should overlap", normMeeting.overlap(normMeeting), true);
+		assertEquals("Should not overlap", otherMeeting.overlap(normMeeting), false);
 	}
 
 }

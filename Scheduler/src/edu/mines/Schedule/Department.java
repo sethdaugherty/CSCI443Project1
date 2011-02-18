@@ -29,4 +29,8 @@ public class Department {
 		return majors.add(major);
 	}
 	
+	public String toString(){
+		return getName() + " " + getCode();
+	}
+	
 }
