@@ -46,6 +46,12 @@ public class CourseMeeting {
 		this.meetingTime = time;
 		this.meetingLength = length;
 	}
+	
+	public String toString(){
+		return getCourse() + " " + getClassroom() + " " + getMeetingTime() 
+		+ " " + getMeetingLength();
+		
+	}
 
 
 }

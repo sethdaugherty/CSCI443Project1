@@ -11,4 +11,8 @@ public class Instructor extends Person {
 	public Department getDepartment() {
 		return department;
 	}
+	
+	public String toString(){
+		return getName() + " " + getCwid();
+	}
 }
