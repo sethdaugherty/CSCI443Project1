@@ -6,10 +6,12 @@ import java.util.Date;
 import junit.framework.TestCase;
 
 public class EnrollmentTest extends TestCase {
+	
+	/**
+	 * Helper method to set up a dummy Enrollment
+	 */
 	public static Enrollment createEnrollment() {
-		ArrayList<Major> majors = new ArrayList<Major>();
-		majors.add(Major.CompSci);
-		Student student = new Student("Bob Joe", "########", majors);
+		Student student = StudentTest.createStudent();
 		CourseMeeting courseMeeting = CourseMeetingTest.createMeeting();
 		return new Enrollment(student, courseMeeting);
 	}
