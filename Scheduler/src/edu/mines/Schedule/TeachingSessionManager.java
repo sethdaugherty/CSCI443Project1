@@ -39,7 +39,7 @@ public class TeachingSessionManager {
 			Instructor oldInstructor = s.getInstructor();
 			// This is the same instructor, so lets see if the classes are at
 			// the same time
-			if (newInstructor.toString().equals(oldInstructor.toString())) {
+			if (newInstructor.equals(oldInstructor)) {
 				CourseMeeting oldMeeting = s.getCourseMeeting();
 				if( oldMeeting.overlap(newMeeting) ) {
 					return true;
@@ -76,7 +76,7 @@ public class TeachingSessionManager {
 	}
 
 	public ArrayList<TeachingSession> getSessions() {
-		return sessions;
+		return new ArrayList<TeachingSession>(sessions);
 	}
 
 	public void clearData() {
