@@ -9,6 +9,10 @@ public class Student extends Person {
 		this.majors = majors;
 		this.previousCourses = previousCourses;
 	}
+	
+	private static final double SOPHMORE_LEVEL = 30;
+	private static final double JUNIOR_LEVEL = 60;
+	private static final double SENIOR_LEVEL = 90;
 
 	private ArrayList<Major> majors;
 	private ArrayList<Course> previousCourses;
@@ -26,11 +30,14 @@ public class Student extends Person {
 		for (Course course : previousCourses) {
 			sum = course.getNumCredits();
 		}
-		if (sum < 30) {
+
+		if(sum < SOPHMORE_LEVEL){
 			return "Freshman";
-		} else if (sum < 60) {
+		}
+		else if(sum < JUNIOR_LEVEL){
 			return "Sophmore";
-		} else if (sum < 90) {
+		}
+		else if(sum < SENIOR_LEVEL){
 			return "Junior";
 		} else
 			return "Senior";

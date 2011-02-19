@@ -14,7 +14,7 @@ public class Department {
 	}
 	
 	ArrayList<Major> getMajors() {
-		return (ArrayList<Major>) majors.clone();
+		return new ArrayList<Major>(majors);
 	}
 	
 	String getName() {
