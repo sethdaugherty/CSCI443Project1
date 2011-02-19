@@ -7,12 +7,14 @@ public class CourseMeeting {
 	private Classroom classroom;
 	private Date meetingTime;
 	private int meetingLength;
+	private int numEnrolledStudents;
 
 	public CourseMeeting(Course course, Classroom room, Date time, int length) {
 		this.course = course;
 		this.classroom = room;
 		this.meetingTime = time;
 		this.meetingLength = length;
+		this.numEnrolledStudents = 0;
 	}
 
 	public Date getEndTime() {
@@ -39,6 +41,10 @@ public class CourseMeeting {
 
 	public int getMeetingLength() {
 		return meetingLength;
+	}
+	
+	public int getNumEnrolledStudents() {
+		return numEnrolledStudents;
 	}
 
 	public String toString() {
@@ -68,5 +74,36 @@ public class CourseMeeting {
 		// Otherwise return false
 		else
 			return false;
+	}
+	
+	public boolean isFull() {
+		return numEnrolledStudents == classroom.getMaxCapacity();
+	}
+	
+	public boolean addStudent() {
+		if (isFull())
+			return false;
+		else {
+			numEnrolledStudents++;
+			return true;
+		}
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		CourseMeeting c = (CourseMeeting) obj;
+		
+		if (this.course != c.getCourse())
+			return false;
+		else if (this.classroom != c.getClassroom())
+			return false;
+		else if (this.meetingTime != c.getMeetingTime())
+			return false;
+		else if (this.meetingLength != c.getMeetingLength())
+			return false;
+		else if (this.numEnrolledStudents != c.getNumEnrolledStudents())
+			return false;
+		
+		return true;
 	}
 }

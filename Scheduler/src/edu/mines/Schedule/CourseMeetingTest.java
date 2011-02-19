@@ -8,7 +8,7 @@ public class CourseMeetingTest extends TestCase {
 
 	public static final String DEFAULT_CLASSROOM_ROOM = "testRoom";
 	public static final String DEFAULT_CLASSROOM_BUILDING = "testBuilding";
-	public static final int DEFAULT_CLASSROOM_CAPACITY = 30;
+	public static final int DEFAULT_CLASSROOM_CAPACITY = 1;
 	public static final int DEFAULT_MEETING_DATE_NUMBER = 1262343600;
 	public static final int DEFAULT_MEETING_LENGTH = 50;
 	public static final int DEFAULT_MEETING_LENGTH_2 = 2 * DEFAULT_MEETING_LENGTH;
@@ -38,8 +38,8 @@ public class CourseMeetingTest extends TestCase {
 		return meeting;
 	}
 
-	public static CourseMeeting createMeeting2() {
-		Course course = CourseTest.createCourse2();
+	public static CourseMeeting createMeetingWithPreReq() {
+		Course course = CourseTest.createCourseWithPreReq();
 		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
 				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
 		CourseMeeting meeting = new CourseMeeting(course, room,
@@ -49,7 +49,7 @@ public class CourseMeetingTest extends TestCase {
 	}
 	
 	public static CourseMeeting createMeetingEarly() {
-		Course course = CourseTest.createCourse2();
+		Course course = CourseTest.createCourse();
 		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
 				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
 		CourseMeeting meeting = new CourseMeeting(course, room,
@@ -58,7 +58,7 @@ public class CourseMeetingTest extends TestCase {
 		return meeting;
 	}
 	public static CourseMeeting createMeetingLater() {
-		Course course = CourseTest.createCourse2();
+		Course course = CourseTest.createCourse();
 		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
 				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
 		CourseMeeting meeting = new CourseMeeting(course, room,
@@ -67,7 +67,7 @@ public class CourseMeetingTest extends TestCase {
 		return meeting;
 	}
 	public static CourseMeeting createMeetingLong() {
-		Course course = CourseTest.createCourse2();
+		Course course = CourseTest.createCourse();
 		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
 				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
 		CourseMeeting meeting = new CourseMeeting(course, room,
@@ -77,7 +77,7 @@ public class CourseMeetingTest extends TestCase {
 	}
 	
 	public static CourseMeeting createMeetingOther() {
-		Course course = CourseTest.createCourse2();
+		Course course = CourseTest.createCourse();
 		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
 				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
 		CourseMeeting meeting = new CourseMeeting(course, room,

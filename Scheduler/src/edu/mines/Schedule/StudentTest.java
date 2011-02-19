@@ -16,6 +16,7 @@ public class StudentTest extends TestCase {
 	public static final ArrayList<Course> DEFAULT_STUDENT_PREV_COURSES_5 = CourseTest.DEFAULT_PRE_REQS_5;
 	static {
 		DEFAULT_STUDENT_MAJORS.add(DEFAULT_STUDENT_MAJOR);
+		DEFAULT_STUDENT_PREV_COURSES_2.add(CourseTest.DEFAULT_COURSE);
 	}
 
 	/**
