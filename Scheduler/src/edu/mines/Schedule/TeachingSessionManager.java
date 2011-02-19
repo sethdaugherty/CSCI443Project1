@@ -41,13 +41,7 @@ public class TeachingSessionManager {
 			// the same time
 			if (newInstructor.toString().equals(oldInstructor.toString())) {
 				CourseMeeting oldMeeting = s.getCourseMeeting();
-				if ((oldMeeting.getMeetingTime().before(
-						newMeeting.getMeetingTime()) && oldMeeting.getEndTime()
-						.after(newMeeting.getMeetingTime()))
-						|| (newMeeting.getMeetingTime().before(
-								oldMeeting.getMeetingTime()) && newMeeting
-								.getEndTime()
-								.after(oldMeeting.getMeetingTime()))) {
+				if( oldMeeting.overlap(newMeeting) ) {
 					return true;
 				}
 			}
