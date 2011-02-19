@@ -16,13 +16,19 @@ public class CourseTest extends TestCase {
 	public static final ArrayList<Course> DEFAULT_PRE_REQS = new ArrayList<Course>();
 	public static final ArrayList<Course> DEFAULT_PRE_REQS_2 = new ArrayList<Course>();
 	public static final ArrayList<Course> DEFAULT_PRE_REQS_3 = new ArrayList<Course>();
+	public static final ArrayList<Course> DEFAULT_PRE_REQS_4 = new ArrayList<Course>();
+	public static final ArrayList<Course> DEFAULT_PRE_REQS_5 = new ArrayList<Course>();
 	public static final Course DEFAULT_COURSE = createCourse();
 	public static final Course DEFAULT_COURSE_2 = createCourse2();
 	public static final Course DEFAULT_COURSE_3 = createCourse3();
+	public static final Course DEFAULT_COURSE_4 = createCourse4();
+	public static final Course DEFAULT_COURSE_5 = createCourse5();
 	static {
 		DEFAULT_COURSE_TEXTBOOKS.add(DEFAULT_TEXTBOOK);
 		DEFAULT_PRE_REQS_2.add(DEFAULT_COURSE);
 		DEFAULT_PRE_REQS_3.add(DEFAULT_COURSE_3);
+		DEFAULT_PRE_REQS_4.add(DEFAULT_COURSE_4);
+		DEFAULT_PRE_REQS_5.add(DEFAULT_COURSE_5);
 	}
 
 	public static Course createCourse() {
@@ -41,6 +47,20 @@ public class CourseTest extends TestCase {
 	public static Course createCourse3() {
 		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME,
 				DEFAULT_DEPARTMENT, DEFAULT_CREDIT_NUMBER_2,
+				DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS);
+		return course;
+	}
+	
+	public static Course createCourse4() {
+		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME,
+				DEFAULT_DEPARTMENT, DEFAULT_CREDIT_NUMBER_2 - 1,
+				DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS);
+		return course;
+	}
+	
+	public static Course createCourse5() {
+		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME,
+				DEFAULT_DEPARTMENT, DEFAULT_CREDIT_NUMBER_2 + 30,
 				DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS);
 		return course;
 	}
