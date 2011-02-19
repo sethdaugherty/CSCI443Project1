@@ -43,6 +43,15 @@ public class Student extends Person {
 			return "Senior";
 	}
 
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Name: ");
+		builder.append(name);
+		builder.append(" CWID: ");
+		builder.append(cwid);
+		return builder.toString();
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		Student s = (Student) obj;

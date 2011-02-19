@@ -61,7 +61,6 @@ public class EnrollmentManager {
 	 */
 	private boolean hasPreReqs(Enrollment enrollment) {
 		ArrayList<Course> studentCourses = enrollment.getStudent().getCourses();
-		System.out.println(studentCourses.size());
 		return studentCourses.containsAll(enrollment.getCourseMeeting()
 				.getCourse().getPreReqs());
 	}

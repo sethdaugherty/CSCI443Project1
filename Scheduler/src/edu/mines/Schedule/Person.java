@@ -1,8 +1,8 @@
 package edu.mines.Schedule;
 
 public class Person {
-	private String name;
-	private String cwid;
+	protected String name;
+	protected String cwid;
 	
 	public Person(String name, String cwid) {
 		this.name = name;

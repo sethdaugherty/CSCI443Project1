@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 
 public class Scheduler {
@@ -26,18 +27,25 @@ public class Scheduler {
 
 
 	private void setupInstructors() {
-		// TODO Auto-generated method stub
-		
+		Instructor instructor1 = new Instructor("Lance Thode", "43123456", Department.CS);
+		Instructor instructor2 = new Instructor("Kurt Melody", "42671231", Department.MATH);
+		Instructor instructor3 = new Instructor("Cody Gladding", "67345252", Department.MNG);
+		Instructor instructor4 = new Instructor("Tyrone Kilmon", "78567336", Department.CS);
+		instructorList.add(instructor1);
+		instructorList.add(instructor2);
+		instructorList.add(instructor3);
+		instructorList.add(instructor4);
 	}
 
 	private void setupStudents() {
 		ArrayList<Major> major = new ArrayList<Major>();
+		ArrayList<Course> preReqs = new ArrayList<Course>();
 		major.add(Major.CompSci);
-		Student student1 = new Student("Hugh Mann", "44886266", major, null);
-		Student student2 = new Student("Justin Case", "54863295", major, null);
-		Student student3 = new Student("Jim Marcus", "77775554", major, null);
-		Student student4 = new Student("Rico Salvo", "87895641", major, null);
-		Student student5 = new Student("Marco System", "13467985", major, null);
+		Student student1 = new Student("Hugh Mann", "44886266", major, preReqs);
+		Student student2 = new Student("Justin Case", "54863295", major, preReqs);
+		Student student3 = new Student("Jim Marcus", "77775554", major, preReqs);
+		Student student4 = new Student("Rico Salvo", "87895641", major, preReqs);
+		Student student5 = new Student("Marco System", "13467985", major, preReqs);
 		studentList.add(student1);
 		studentList.add(student2);
 		studentList.add(student3);
@@ -46,7 +54,29 @@ public class Scheduler {
 	}
 	
 	private void setupCourseMeetings() {
-		// TODO Auto-generated method stub
+		ArrayList<Course> preReqs = new ArrayList<Course>();
+		ArrayList<String> books1 = new ArrayList<String>();
+		books1.add("Refactoring to patterns");
+		books1.add("Effective Java");
+		Course course1 = new Course( "443",  "Advanced Java", Department.CS, 3, books1, preReqs );
+		long jan1_2011_11AM = new Long("1293904800000");
+		Date date1 = new Date( jan1_2011_11AM );
+		CourseMeeting meeting1 = new CourseMeeting(course1, Classroom.CTLM102, date1 , 50 );
+		courseMeetingList.add(meeting1);
+		
+		Course course2 = new Course( "101", "Intro to Computer Science", Department.CS, 3, null, preReqs );
+		CourseMeeting meeting2 = new CourseMeeting(course2, Classroom.GC249, date1, 50);
+		courseMeetingList.add(meeting2);
+		
+		long jan1_2011_12PM = new Long("1293908400000");
+		Date date2 = new Date( jan1_2011_12PM );
+		Course course3 = new Course( "261", "Programming Concepts", Department.CS, 3, null, preReqs );
+		CourseMeeting meeting3 = new CourseMeeting(course3, Classroom.CO209, date2, 50 );
+		courseMeetingList.add(meeting3);
+		
+		Course course4 = new Course("200", "Physics I : Introductory Mechanics", Department.PHYS, 4.5, null, preReqs );
+		CourseMeeting meeting4 = new CourseMeeting( course4, Classroom.CTLM102, date2, 50 );
+		courseMeetingList.add(meeting4);
 		
 	}
 	
@@ -57,55 +87,117 @@ public class Scheduler {
 		System.out.println("[3] List Instructors");
 		System.out.println("[4] List Courses");
 		System.out.println("[5] Add student to course");
-		System.out.println("[6] Add student to course");
+		System.out.println("[6] Assign instructor to course");
 		System.out.println("[7] Quit");
 	}
 	
 	
-	private void addInstructor() {
-		// TODO Auto-generated method stub
+	/**
+	 * Ask the user for an instructor number and a course number
+	 * @throws Exception 
+	 */
+	private void addInstructor() throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the number of an instructor:");
+		int x = 0;
+		for( Instructor instructor : instructorList ) {
+			System.out.println( x + " " + instructor.toString() );
+			x += 1;
+		}
+		String choice = br.readLine().trim();
+		Instructor instructor;
+		try {
+			instructor = instructorList.get( Integer.parseInt(choice) );
+		}
+		catch (IndexOutOfBoundsException e ) {
+			System.out.println("Invalid instructor number");
+			printMenu();
+			return;
+		}
+		
+		x = 0;
+		for( CourseMeeting meeting : courseMeetingList ) {
+			System.out.println( x + " " + meeting.toString() );
+			x += 1;
+		}
+		choice = br.readLine().trim();
+		CourseMeeting meeting;
+		try {
+			meeting = courseMeetingList.get( Integer.parseInt(choice) );
+		}
+		catch (IndexOutOfBoundsException e ) {
+			System.out.println("Invalid course number");
+			printMenu();
+			return;
+		}
+		
+		TeachingSession session = new TeachingSession( instructor, meeting );
+		teachingSessionManager.addSession(session);
+		System.out.println("Added instructor to course");
+	}
+
+	private void addStudent() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the number of an instructor:");
+		int x = 0;
+		for( Student student : studentList ) {
+			System.out.println( x + " " + student.toString() );
+			x += 1;
+		}
+		String choice = br.readLine().trim();
+		Student student;
+		try {
+			student = studentList.get( Integer.parseInt(choice) );
+		}
+		catch (IndexOutOfBoundsException e ) {
+			System.out.println("Invalid student number");
+			printMenu();
+			return;
+		}
+		
+		x = 0;
+		for( CourseMeeting meeting : courseMeetingList ) {
+			System.out.println( x + " " + meeting.toString() );
+			x += 1;
+		}
+		choice = br.readLine().trim();
+		CourseMeeting meeting;
+		try {
+			meeting = courseMeetingList.get( Integer.parseInt(choice) );
+		}
+		catch (IndexOutOfBoundsException e ) {
+			System.out.println("Invalid course number");
+			printMenu();
+			return;
+		}
+		
+		Enrollment enrollment = new Enrollment( student, meeting );
+		enrollmentManager.addEnrollment(enrollment);
+		System.out.println("Added student to course");
 		
 	}
 
-	private void addStudent() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void listCourses() {
-		ArrayList<CourseMeeting> meetings = meetingManager.getCourseMeetingList();
-		for( CourseMeeting meeting : meetings ) {
+	private void listCourses() {;
+		for( CourseMeeting meeting : courseMeetingList ) {
 			System.out.println(meeting);
 		}
 	}
 
 	private void listInstructors() {
-		ArrayList<TeachingSession> sessions = teachingSessionManager.getSessions();
-		HashSet<Instructor> instructors = new HashSet<Instructor>();
-		for( TeachingSession session : sessions ) {
-			instructors.add(session.getInstructor());
-		}
-		
 		// We got a unique list of instructors, so lets print them
-		for( Instructor instructor : instructors ) {
+		for( Instructor instructor : instructorList ) {
 			System.out.println(instructor);
 		}
 	}
 
 	private void listStudents() {
-		ArrayList<Enrollment> enrollments = enrollmentManager.getEnrollments();
-		HashSet<Student> students = new HashSet<Student>();
-		for( Enrollment enrollment : enrollments ) {
-			students.add(enrollment.getStudent());
-		}
-		
 		// We got a unique list of students, so lets print them
-		for( Student student : students ) {
+		for( Student student : studentList ) {
 			System.out.println(student);
 		}
 	}
 	
-	private void handleChoice(int choice) {
+	private void handleChoice(int choice) throws Exception {
 		System.out.println(choice);
 		switch(choice) {
 			case 1:
@@ -139,7 +231,7 @@ public class Scheduler {
 		}
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws NumberFormatException, Exception {
 		Scheduler scheduler = new Scheduler();
 		scheduler.setupStudents();
 		scheduler.setupInstructors();

@@ -48,9 +48,13 @@ public class CourseMeeting {
 	}
 
 	public String toString() {
-		return getCourse() + " " + getClassroom() + " " + getMeetingTime()
-				+ " " + getMeetingLength();
-
+		StringBuilder builder = new StringBuilder();
+		builder.append( course.toString() );
+		builder.append( " Room: ");
+		builder.append( classroom );
+		builder.append( " Time: " );
+		builder.append( meetingTime );
+		return builder.toString();
 	}
 
 	public boolean overlap(CourseMeeting otherMeeting) {

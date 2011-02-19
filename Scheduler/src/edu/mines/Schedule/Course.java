@@ -45,6 +45,15 @@ public class Course {
 		return preReqs;
 	}
 
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(department.getCode());
+		builder.append(courseNumber);
+		builder.append(" ");
+		builder.append(courseName);
+		return builder.toString();
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		Course c = (Course) obj;
