@@ -2,6 +2,9 @@ package edu.mines.Schedule;
 
 import junit.framework.TestCase;
 
+/**
+ * Tests {@link EnrollmentManager} to ensure it operates correctly.
+ */
 public class EnrollmentManagerTest extends TestCase {
 	public static final Student DEFAULT_ENROLLMENT_MANAGER_STUDENT = StudentTest
 			.createStudent();

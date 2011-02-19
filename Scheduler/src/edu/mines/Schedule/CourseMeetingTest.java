@@ -1,9 +1,11 @@
 package edu.mines.Schedule;
 
 import java.util.Date;
-
 import junit.framework.TestCase;
 
+/**
+ * Tests {@link CourseMeeting} to ensure it operates correctly
+ */
 public class CourseMeetingTest extends TestCase {
 
 	public static final int DEFAULT_MEETING_DATE_NUMBER = 1262343600;

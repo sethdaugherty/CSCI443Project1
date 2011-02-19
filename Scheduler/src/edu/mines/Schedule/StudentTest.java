@@ -3,6 +3,9 @@ package edu.mines.Schedule;
 import java.util.ArrayList;
 import junit.framework.TestCase;
 
+/**
+ * Tests {@link Student} to ensure it operates properly.
+ */
 public class StudentTest extends TestCase {
 
 	public static final String DEFAULT_STUDENT_NAME = "Bob Joe";

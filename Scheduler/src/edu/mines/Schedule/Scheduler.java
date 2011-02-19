@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 
+/**
+ * Operates an interface for scheduling {@link Student}s and {@link Instructor}s to various {@link Course}s
+ */
 public class Scheduler {
 	ArrayList<Student> studentList;
 	ArrayList<Instructor> instructorList;

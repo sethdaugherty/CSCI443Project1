@@ -1,9 +1,10 @@
 package edu.mines.Schedule;
 
-import java.util.ArrayList;
-
 import junit.framework.TestCase;
 
+/**
+ * Tests {@link Instructor} to ensure it operates properly.
+ */
 public class InstructorTest extends TestCase {
 
 	public static final String DEFAULT_INSTRUCTOR_NAME = "Bob Joe";

@@ -1,5 +1,8 @@
 package edu.mines.Schedule;
 
+/**
+ * Represents an {@link Instructor}'s designation to teach a specific {@link CourseMeeting}.
+ */
 public class TeachingSession {
 	
 	public Instructor instructor;

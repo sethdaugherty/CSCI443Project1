@@ -2,6 +2,10 @@ package edu.mines.Schedule;
 
 import java.util.ArrayList;
 
+/**
+ * Represents a Student for the purpose of scheduling.
+ * Extends {@link Person}.
+ */
 public class Student extends Person {
 	public Student(String name, String cwid, ArrayList<Major> majors,
 			ArrayList<Course> previousCourses) {
@@ -18,11 +22,11 @@ public class Student extends Person {
 	private ArrayList<Course> previousCourses;
 
 	public ArrayList<Major> getMajor() {
-		return majors;
+		return new ArrayList<Major>(majors);
 	}
 
 	public ArrayList<Course> getCourses() {
-		return previousCourses;
+		return new ArrayList<Course>(previousCourses);
 	}
 
 	public String getStatus() {

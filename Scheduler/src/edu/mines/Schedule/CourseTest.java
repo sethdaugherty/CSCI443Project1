@@ -1,8 +1,11 @@
 package edu.mines.Schedule;
 
-import junit.framework.TestCase;
 import java.util.ArrayList;
+import junit.framework.TestCase;
 
+/**
+ * Tests {@link Course} to ensure it operates correctly.
+ */
 public class CourseTest extends TestCase {
 
 	public static final String DEFAULT_COURSE_NUMBER = "101";

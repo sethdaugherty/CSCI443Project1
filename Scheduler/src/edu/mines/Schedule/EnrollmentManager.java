@@ -2,6 +2,19 @@ package edu.mines.Schedule;
 
 import java.util.ArrayList;
 
+/**
+ * Manages all {@link Enrollment} instances. Allows addition of
+ * {@link Enrollment} instances and ensures that each {@link Enrollment}
+ * instance is valid. A instance is valid if the contained {@link Student} has
+ * no {@link CourseMeeting}s that overlap with the {@link Enrollment} instance's
+ * {@link CourseMeeting}, has all required Pre-Req {@link Course}s for the
+ * {@link Enrollment} instance's {@link CourseMeeting}, is not already involved
+ * in an {@link Enrollment} for a different {@link CourseMeeting} of the same
+ * {@link Course}, and the {@link Enrollment} instance's {@link CourseMeeting}
+ * does not have full capacity.
+ * 
+ * SINGLETON.
+ */
 public class EnrollmentManager {
 	private static EnrollmentManager theInstance = null;
 
@@ -22,26 +35,31 @@ public class EnrollmentManager {
 	 * Add an enrollment object to the Enrollment Manager Also, checks if the
 	 * enrollment is valid no student has courses at the same time student must
 	 * have pre-reqs for the Course student cannot already be enrolled in the
-	 * Course
+	 * Course.
 	 * 
 	 * @param enrollment
+	 * @throws IllegalArgumentException
 	 */
 	public void addEnrollment(Enrollment enrollment)
 			throws IllegalArgumentException {
-		if (!hasPreReqs(enrollment))
+		// Check for pre-reqs
+		if (!hasPreReqs(enrollment)) 
 			throw new IllegalArgumentException(
 					"Must have the required pre-reqs");
-
-		if (hasTimeConflict(enrollment))
+		
+		// Check for Time Conflict
+		if (hasTimeConflict(enrollment)) 
 			throw new IllegalArgumentException(
 					"Cannot have two classes at the same time");
 
-		if (hasCourse(enrollment))
+		// Check if already enrolled in provided Course
+		if (hasCourse(enrollment)) 
 			throw new IllegalArgumentException(
 					"Cannot have a student enrolled in two meetings of the same course"
 							+ " at the same time");
 		
-		if (enrollment.getCourseMeeting().addStudent())
+		// Check if room in the CourseMeeting
+		if (enrollment.getCourseMeeting().addStudent()) 
 			enrollments.add(enrollment);
 		else
 			throw new IllegalArgumentException(
@@ -53,11 +71,11 @@ public class EnrollmentManager {
 	}
 
 	/**
-	 * Make sure the student in the given enrollment has the pre-reqs required
-	 * for the Course in the enrollment's CourseMeeting
+	 * Make sure the {@link Student} in {@link enrollment} has the pre-reqs required
+	 * for the {@link Course} in the {@link enrollment}'s {@link CourseMeeting}.
 	 * 
 	 * @param enrollment
-	 * @return
+	 * @return true if the {@link Student} has the pre-reqs, false otehrwise.
 	 */
 	private boolean hasPreReqs(Enrollment enrollment) {
 		ArrayList<Course> studentCourses = enrollment.getStudent().getCourses();
@@ -70,7 +88,7 @@ public class EnrollmentManager {
 	 * enrollment at the same time
 	 * 
 	 * @param enrollment
-	 * @return
+	 * @return true if there is a time conflict, false otherwise.
 	 */
 	private boolean hasTimeConflict(Enrollment enrollment) {
 		Student newStudent = enrollment.getStudent();
@@ -92,10 +110,12 @@ public class EnrollmentManager {
 	}
 
 	/**
-	 * Make sure the student is not currently enrolled in the course
+	 * Make sure the {@link Student} in {@link enrollment} is not currently
+	 * enrolled in the same (@link Course} as in another of the {@link Student}
+	 * 's {@link Enrollment}s.
 	 * 
 	 * @param enrollment
-	 * @return
+	 * @return true if the Student is already enrolled in the course, false otherwise.
 	 */
 	private boolean hasCourse(Enrollment enrollment) {
 		Student newStudent = enrollment.getStudent();

@@ -2,6 +2,10 @@ package edu.mines.Schedule;
 
 import java.util.ArrayList;
 
+/**
+ * Represents a Department for the purpose of scheduling.
+ * ENUM.
+ */
 public enum Department {
 	CS("Computer Science", "CSCI"),
 	ENG("Engineering", "ENGN"),

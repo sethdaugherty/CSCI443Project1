@@ -2,6 +2,9 @@ package edu.mines.Schedule;
 
 import junit.framework.TestCase;
 
+/**
+ * Tests {@link Department} to ensure it operates correctly.
+ */
 public class DepartmentTest extends TestCase {
 
 	public void testDepartment() {

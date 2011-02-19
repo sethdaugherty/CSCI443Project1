@@ -1,10 +1,12 @@
 package edu.mines.Schedule;
 
-import junit.framework.TestCase;
-
 import java.util.ArrayList;
 import java.util.Date;
+import junit.framework.TestCase;
 
+/**
+ * Tests {@link TeachingSession} to ensure it operates correctly.
+ */
 public class TeachingSessionTest extends TestCase {
 
 	public void testTeachingSession() {

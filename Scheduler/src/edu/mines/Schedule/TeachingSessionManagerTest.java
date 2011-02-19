@@ -2,9 +2,11 @@ package edu.mines.Schedule;
 
 import java.util.ArrayList;
 import java.util.Date;
-
 import junit.framework.TestCase;
 
+/**
+ * Tests {@link TeachingSessionManager} to ensure it operates correctly.
+ */
 public class TeachingSessionManagerTest extends TestCase {
 
 	public void testAddTeachingSession() throws Exception {
@@ -70,7 +72,7 @@ public class TeachingSessionManagerTest extends TestCase {
 			// We shouldn't be able to add the session, so if we get here, the
 			// test fails
 			fail();
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			assertTrue(true);
 		}
 	}
@@ -88,7 +90,7 @@ public class TeachingSessionManagerTest extends TestCase {
 			// We shouldn't be able to add the session, so if we get here, the
 			// test fails
 			fail();
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			assertTrue(true);
 		}
 	}

@@ -2,6 +2,9 @@ package edu.mines.Schedule;
 
 import java.util.ArrayList;
 
+/**
+ * Represents a course for the purpose of scheduling.
+ */
 public class Course {
 	private String courseNumber;
 	private String courseName;
@@ -53,7 +56,7 @@ public class Course {
 		builder.append(courseName);
 		return builder.toString();
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		Course c = (Course) obj;
@@ -69,7 +72,7 @@ public class Course {
 		else if (!this.textBooks.containsAll(c.getTextBooks())
 				|| this.textBooks.size() != c.getTextBooks().size())
 			return false;
-		
+
 		return true;
 	}
 
