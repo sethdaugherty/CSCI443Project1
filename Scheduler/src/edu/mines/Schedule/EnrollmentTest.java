@@ -3,7 +3,7 @@ package edu.mines.Schedule;
 import junit.framework.TestCase;
 
 /**
- * Tests {@link Enrollment} to ensure it operates properly.
+ * Tests {@link Enrollment} to ensure it operates correctly.
  */
 public class EnrollmentTest extends TestCase {
 	private static Student DEFAULT_ENROLLMENT_STUDENT = StudentTest
@@ -21,12 +21,13 @@ public class EnrollmentTest extends TestCase {
 		CourseMeeting courseMeeting = CourseMeetingTest.createMeeting();
 		return new Enrollment(student, courseMeeting);
 	}
-	
+
 	public static Enrollment createEnrollment2() {
 		Student student = DEFAULT_ENROLLMENT_STUDENT_2;
 		CourseMeeting courseMeeting = DEFAULT_ENROLLMENT_COURSE_MEETING;
 		return new Enrollment(student, courseMeeting);
 	}
+
 	public static Enrollment createEnrollment3() {
 		Student student = DEFAULT_ENROLLMENT_STUDENT;
 		CourseMeeting courseMeeting = DEFAULT_ENROLLMENT_COURSE_MEETING;
@@ -35,16 +36,18 @@ public class EnrollmentTest extends TestCase {
 
 	public static Enrollment createEnrollmentWithInvalidPreReq() {
 		Student student = DEFAULT_ENROLLMENT_STUDENT;
-		CourseMeeting courseMeeting = CourseMeetingTest.createMeetingWithPreReq();
+		CourseMeeting courseMeeting = CourseMeetingTest
+				.createMeetingWithPreReq();
 		return new Enrollment(student, courseMeeting);
 	}
 
 	public static Enrollment createEnrollmentWithValidPreReq() {
 		Student student = DEFAULT_ENROLLMENT_STUDENT_2;
-		CourseMeeting courseMeeting = CourseMeetingTest.createMeetingWithPreReq();
+		CourseMeeting courseMeeting = CourseMeetingTest
+				.createMeetingWithPreReq();
 		return new Enrollment(student, courseMeeting);
 	}
-	
+
 	public static Enrollment createEnrollmentNoConflict() {
 		Student student = DEFAULT_ENROLLMENT_STUDENT;
 		CourseMeeting courseMeeting = CourseMeetingTest.createMeetingOther();
@@ -56,8 +59,8 @@ public class EnrollmentTest extends TestCase {
 
 		assertEquals("Student is incorrect", enrollment.getStudent(),
 				DEFAULT_ENROLLMENT_STUDENT);
-		assertTrue("CourseMeeting is incorrect", enrollment
-				.getCourseMeeting().equals(DEFAULT_ENROLLMENT_COURSE_MEETING));
+		assertTrue("CourseMeeting is incorrect", enrollment.getCourseMeeting()
+				.equals(DEFAULT_ENROLLMENT_COURSE_MEETING));
 	}
 
 }

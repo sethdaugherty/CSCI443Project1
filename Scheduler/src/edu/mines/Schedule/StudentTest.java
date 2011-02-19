@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 /**
- * Tests {@link Student} to ensure it operates properly.
+ * Tests {@link Student} to ensure it operates correctly.
  */
 public class StudentTest extends TestCase {
 

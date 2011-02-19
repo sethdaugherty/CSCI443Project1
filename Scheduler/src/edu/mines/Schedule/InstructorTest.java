@@ -3,7 +3,7 @@ package edu.mines.Schedule;
 import junit.framework.TestCase;
 
 /**
- * Tests {@link Instructor} to ensure it operates properly.
+ * Tests {@link Instructor} to ensure it operates correctly.
  */
 public class InstructorTest extends TestCase {
 
