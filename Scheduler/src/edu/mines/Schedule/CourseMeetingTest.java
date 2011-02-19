@@ -6,9 +6,6 @@ import junit.framework.TestCase;
 
 public class CourseMeetingTest extends TestCase {
 
-	public static final String DEFAULT_CLASSROOM_ROOM = "testRoom";
-	public static final String DEFAULT_CLASSROOM_BUILDING = "testBuilding";
-	public static final int DEFAULT_CLASSROOM_CAPACITY = 1;
 	public static final int DEFAULT_MEETING_DATE_NUMBER = 1262343600;
 	public static final int DEFAULT_MEETING_LENGTH = 50;
 	public static final int DEFAULT_MEETING_LENGTH_2 = 2 * DEFAULT_MEETING_LENGTH;
@@ -30,8 +27,7 @@ public class CourseMeetingTest extends TestCase {
 	 */
 	public static CourseMeeting createMeeting() {
 		Course course = CourseTest.createCourse();
-		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
-				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
+		Classroom room = Classroom.Test;
 		CourseMeeting meeting = new CourseMeeting(course, room,
 				DEFAULT_MEETING_TIME, DEFAULT_MEETING_LENGTH);
 
@@ -40,8 +36,7 @@ public class CourseMeetingTest extends TestCase {
 
 	public static CourseMeeting createMeetingWithPreReq() {
 		Course course = CourseTest.createCourseWithPreReq();
-		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
-				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
+		Classroom room = Classroom.Test;
 		CourseMeeting meeting = new CourseMeeting(course, room,
 				DEFAULT_MEETING_TIME, DEFAULT_MEETING_LENGTH);
 
@@ -50,8 +45,7 @@ public class CourseMeetingTest extends TestCase {
 	
 	public static CourseMeeting createMeetingEarly() {
 		Course course = CourseTest.createCourse();
-		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
-				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
+		Classroom room = Classroom.Test;
 		CourseMeeting meeting = new CourseMeeting(course, room,
 				DEFAULT_MEETING_TIME_EARLY, DEFAULT_MEETING_LENGTH);
 
@@ -59,8 +53,7 @@ public class CourseMeetingTest extends TestCase {
 	}
 	public static CourseMeeting createMeetingLater() {
 		Course course = CourseTest.createCourse();
-		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
-				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
+		Classroom room = Classroom.Test;
 		CourseMeeting meeting = new CourseMeeting(course, room,
 				DEFAULT_MEETING_TIME_LATER, DEFAULT_MEETING_LENGTH);
 
@@ -68,8 +61,7 @@ public class CourseMeetingTest extends TestCase {
 	}
 	public static CourseMeeting createMeetingLong() {
 		Course course = CourseTest.createCourse();
-		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
-				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
+		Classroom room = Classroom.Test;
 		CourseMeeting meeting = new CourseMeeting(course, room,
 				DEFAULT_MEETING_TIME_EARLY, DEFAULT_MEETING_LENGTH_2);
 
@@ -78,8 +70,7 @@ public class CourseMeetingTest extends TestCase {
 	
 	public static CourseMeeting createMeetingOther() {
 		Course course = CourseTest.createCourse();
-		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
-				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
+		Classroom room = Classroom.Test;
 		CourseMeeting meeting = new CourseMeeting(course, room,
 				DEFAULT_MEETING_TIME_OTHER, DEFAULT_MEETING_LENGTH_2);
 
@@ -88,8 +79,7 @@ public class CourseMeetingTest extends TestCase {
 	
 	public static CourseMeeting createPhysicsMeeting() {
 		Course course = CourseTest.createPhysicsCourse();
-		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
-				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
+		Classroom room = Classroom.Test;
 		CourseMeeting meeting = new CourseMeeting(course, room,
 				DEFAULT_MEETING_TIME, DEFAULT_MEETING_LENGTH);
 

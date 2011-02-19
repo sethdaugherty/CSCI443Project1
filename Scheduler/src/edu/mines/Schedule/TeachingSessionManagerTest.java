@@ -58,7 +58,7 @@ public class TeachingSessionManagerTest extends TestCase {
 
 		// Now, create a teaching session at the same time
 		long startTime2 = CourseMeetingTest.DEFAULT_MEETING_TIME.getTime() + 60;
-		Classroom room = new Classroom(CourseMeetingTest.DEFAULT_CLASSROOM_ROOM, CourseMeetingTest.DEFAULT_CLASSROOM_BUILDING, CourseMeetingTest.DEFAULT_CLASSROOM_CAPACITY);
+		Classroom room = Classroom.Test;
 		
 		CourseMeeting meeting2 = new CourseMeeting(CourseTest.createCourse(),
 				room, new Date(startTime2),

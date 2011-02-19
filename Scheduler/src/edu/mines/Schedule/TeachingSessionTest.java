@@ -19,7 +19,7 @@ public class TeachingSessionTest extends TestCase {
 		
 		Date MEETING_TIME = new Date(2010, 1, 1, 11, 0);
 		
-		Classroom classroom = new Classroom("B60", "CTLM", 30);
+		Classroom classroom = Classroom.Test;
 		
 		CourseMeeting courseMeeting = new CourseMeeting(course, classroom, MEETING_TIME, 55);
 		
