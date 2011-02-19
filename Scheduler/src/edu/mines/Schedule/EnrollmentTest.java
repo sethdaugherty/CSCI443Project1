@@ -26,7 +26,12 @@ public class EnrollmentTest extends TestCase {
 	
 	public static Enrollment createEnrollment2() {
 		Student student = DEFAULT_ENROLLMENT_STUDENT_2;
-		CourseMeeting courseMeeting = CourseMeetingTest.createMeeting();
+		CourseMeeting courseMeeting = DEFAULT_ENROLLMENT_COURSE_MEETING;
+		return new Enrollment(student, courseMeeting);
+	}
+	public static Enrollment createEnrollment3() {
+		Student student = DEFAULT_ENROLLMENT_STUDENT;
+		CourseMeeting courseMeeting = DEFAULT_ENROLLMENT_COURSE_MEETING;
 		return new Enrollment(student, courseMeeting);
 	}
 
@@ -53,8 +58,8 @@ public class EnrollmentTest extends TestCase {
 
 		assertEquals("Student is incorrect", enrollment.getStudent(),
 				DEFAULT_ENROLLMENT_STUDENT);
-		assertEquals("CourseMeeting is incorrect", enrollment
-				.getCourseMeeting(), DEFAULT_ENROLLMENT_COURSE_MEETING);
+		assertTrue("CourseMeeting is incorrect", enrollment
+				.getCourseMeeting().equals(DEFAULT_ENROLLMENT_COURSE_MEETING));
 	}
 
 }

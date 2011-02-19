@@ -48,7 +48,7 @@ public class Course {
 	@Override
 	public boolean equals(Object obj) {
 		Course c = (Course) obj;
-		
+
 		if (this.courseName != c.getCourseName())
 			return false;
 		else if (this.courseNumber != c.getCourseNumber())
@@ -60,6 +60,7 @@ public class Course {
 		else if (!this.textBooks.containsAll(c.getTextBooks())
 				|| this.textBooks.size() != c.getTextBooks().size())
 			return false;
+		
 		return true;
 	}
 

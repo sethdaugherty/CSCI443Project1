@@ -11,7 +11,7 @@ public class TeachingSessionTest extends TestCase {
 		ArrayList<String> books = new ArrayList<String>();
 		books.add("Effective Java");
 		
-		Department department = new Department("Computer Science", "CSCI");
+		Department department = Department.CS;
 		
 		Instructor instructor = new Instructor("Noble Varughese", "123456789", department);
 		
@@ -19,7 +19,7 @@ public class TeachingSessionTest extends TestCase {
 		
 		Date MEETING_TIME = new Date(2010, 1, 1, 11, 0);
 		
-		Classroom classroom = new Classroom("B60", "CTLM", 30);
+		Classroom classroom = Classroom.Test;
 		
 		CourseMeeting courseMeeting = new CourseMeeting(course, classroom, MEETING_TIME, 55);
 		

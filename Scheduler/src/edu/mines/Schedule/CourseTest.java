@@ -11,15 +11,13 @@ public class CourseTest extends TestCase {
 	public static final double DEFAULT_CREDIT_NUMBER_2 = 60;
 	public static final ArrayList<String> DEFAULT_COURSE_TEXTBOOKS = new ArrayList<String>();
 	public static final String DEFAULT_TEXTBOOK = "Computer Science Book";
-	public static final Department DEFAULT_DEPARTMENT = new Department(
-			"Computer Science", "CSCI");
+	public static final Department DEFAULT_DEPARTMENT = Department.CS;
 	public static final String DEFAULT_PHYSICS_COURSE_NUMBER = "200";
 	public static final String DEFAULT_PHYSICS_COURSE_NAME = "Introductory Mechanics";
 	public static final double DEFAULT_PHYSICS_CREDIT_NUMBER = 4.5;
 	public static final ArrayList<String> DEFAULT_PHYSICS_COURSE_TEXTBOOKS = new ArrayList<String>();
 	public static final String DEFAULT_PHYSICS_TEXTBOOK = "A Physics Book";
-	public static final Department DEFAULT_PHYSICS_DEPARTMENT = new Department(
-			"Physics", "PHGN");
+	public static final Department DEFAULT_PHYSICS_DEPARTMENT = Department.PHYS;
 	public static final ArrayList<Course> DEFAULT_PRE_REQS = new ArrayList<Course>();
 	public static final ArrayList<Course> DEFAULT_PRE_REQS_2 = new ArrayList<Course>();
 	public static final ArrayList<Course> DEFAULT_PRE_REQS_3 = new ArrayList<Course>();

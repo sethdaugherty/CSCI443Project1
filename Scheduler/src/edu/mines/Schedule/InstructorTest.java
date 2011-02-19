@@ -8,18 +8,14 @@ public class InstructorTest extends TestCase {
 
 	public static final String DEFAULT_INSTRUCTOR_NAME = "Bob Joe";
 	public static final String DEFAULT_INSTRUCTOR_CWID = "12345678";
-	public static final Department DEFAULT_INSTRUCTOR_DEPARTMENT = new Department("Computer Science", "CSCI");
+	public static final Department DEFAULT_INSTRUCTOR_DEPARTMENT = Department.CS;
 	public static final Major DEFAULT_INSTRUCTOR_MAJOR = Major.CompSci;
 	
 	public static final String DEFAULT_PHYSICS_INSTRUCTOR_NAME = "Chuck Stone";
 	public static final String DEFAULT_PHYSICS_INSTRUCTOR_CWID = "87654321";
-	public static final Department DEFAULT_PHYSICS_INSTRUCTOR_DEPARTMENT = new Department("Physics", "PHGN");
+	public static final Department DEFAULT_PHYSICS_INSTRUCTOR_DEPARTMENT = Department.PHYS;
 	public static final Major DEFAULT_PHYSICS_INSTRUCTOR_MAJOR = Major.Physics;
-	
-	static {
-		DEFAULT_INSTRUCTOR_DEPARTMENT.addMajor(DEFAULT_INSTRUCTOR_MAJOR);
-	}
-	
+
 	/**
 	 * Helper method to set up a dummy instructor
 	 */

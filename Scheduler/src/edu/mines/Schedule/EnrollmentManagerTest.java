@@ -8,7 +8,9 @@ public class EnrollmentManagerTest extends TestCase {
 	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT = EnrollmentTest
 			.createEnrollment();
 	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_2 = EnrollmentTest
-	.createEnrollment2();
+			.createEnrollment2();
+	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_3 = EnrollmentTest
+			.createEnrollment3();
 	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_WITH_INVALID_PREREQ = EnrollmentTest
 			.createEnrollmentWithInvalidPreReq();
 	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_WITH_VALID_PREREQ = EnrollmentTest
@@ -68,7 +70,7 @@ public class EnrollmentManagerTest extends TestCase {
 
 	public void testAddEnrollment_FailTimeConflict() {
 		EnrollmentManager enrollmentManager = createEnrollmentManager();
-		enrollmentManager.addEnrollment(DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT);
+		enrollmentManager.addEnrollment(EnrollmentTest.createEnrollment());
 		try {
 			enrollmentManager
 					.addEnrollment(DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT);
@@ -80,7 +82,7 @@ public class EnrollmentManagerTest extends TestCase {
 
 	public void testAddEnrollment_FailCourseConflict() {
 		EnrollmentManager enrollmentManager = createEnrollmentManager();
-		enrollmentManager.addEnrollment(DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT);
+		enrollmentManager.addEnrollment(EnrollmentTest.createEnrollment());
 		try {
 			enrollmentManager
 					.addEnrollment(DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_COURSE_CONFLICT);
@@ -92,10 +94,11 @@ public class EnrollmentManagerTest extends TestCase {
 
 	public void testAddEnrollment_FailCourseFull() {
 		EnrollmentManager enrollmentManager = createEnrollmentManager();
-		enrollmentManager.addEnrollment(DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT);
+		CourseMeeting meeting = CourseMeetingTest.createMeeting();
+		enrollmentManager.addEnrollment(new Enrollment(DEFAULT_ENROLLMENT_MANAGER_STUDENT, meeting));
 		try {
 			enrollmentManager
-					.addEnrollment(DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_2);
+					.addEnrollment(new Enrollment(DEFAULT_ENROLLMENT_MANAGER_STUDENT, meeting));
 			fail("Should not add enrollment if class is full");
 		} catch (IllegalArgumentException e) {
 			// Expect this

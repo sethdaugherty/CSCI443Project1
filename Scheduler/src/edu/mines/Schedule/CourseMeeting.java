@@ -92,16 +92,14 @@ public class CourseMeeting {
 	@Override
 	public boolean equals(Object obj) {
 		CourseMeeting c = (CourseMeeting) obj;
-		
-		if (this.course != c.getCourse())
-			return false;
+
+		if (!this.course.equals(c.getCourse()))
+			return false; 
 		else if (this.classroom != c.getClassroom())
 			return false;
 		else if (this.meetingTime != c.getMeetingTime())
 			return false;
 		else if (this.meetingLength != c.getMeetingLength())
-			return false;
-		else if (this.numEnrolledStudents != c.getNumEnrolledStudents())
 			return false;
 		
 		return true;
