@@ -11,7 +11,7 @@ public class TeachingSessionTest extends TestCase {
 		ArrayList<String> books = new ArrayList<String>();
 		books.add("Effective Java");
 		
-		Department department = new Department("Computer Science", "CSCI");
+		Department department = Department.CS;
 		
 		Instructor instructor = new Instructor("Noble Varughese", "123456789", department);
 		
