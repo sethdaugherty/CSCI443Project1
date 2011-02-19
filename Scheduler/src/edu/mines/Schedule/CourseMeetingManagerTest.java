@@ -8,7 +8,7 @@ public class CourseMeetingManagerTest extends TestCase {
 
 	public void testAddCourseMeeting() throws Exception {
 		CourseMeeting meeting = CourseMeetingTest.createMeeting();
-		CourseMeeting meeting2 = CourseMeetingTest.createMeetingWithPreReq();
+		CourseMeeting meeting2 = CourseMeetingTest.createMeetingOther();
 		
 		CourseMeetingManager manager = CourseMeetingManager.getInstance();
 		manager.clearData();

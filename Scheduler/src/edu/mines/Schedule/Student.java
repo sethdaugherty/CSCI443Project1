@@ -45,9 +45,8 @@ public class Student extends Person {
 
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Name: ");
 		builder.append(name);
-		builder.append(" CWID: ");
+		builder.append(" ");
 		builder.append(cwid);
 		return builder.toString();
 	}

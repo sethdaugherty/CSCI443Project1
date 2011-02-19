@@ -13,6 +13,6 @@ public class Instructor extends Person {
 	}
 	
 	public String toString(){
-		return getName() + " " + getCwid();
+		return getName() + " " + getCwid() + " " + getDepartment().getName();
 	}
 }
