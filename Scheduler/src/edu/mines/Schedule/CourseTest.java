@@ -15,7 +15,7 @@ public class CourseTest extends TestCase {
 	public static final ArrayList<Course> DEFAULT_PRE_REQS = new ArrayList<Course>();
 	public static final ArrayList<Course> DEFAULT_PRE_REQS_2 = new ArrayList<Course>();
 	public static final Course DEFAULT_COURSE = createCourse();
-	public static final Course DEFAULT_COURSE_2 = createCourse2();
+	public static final Course DEFAULT_COURSE_WITH_PREREQ = createCourseWithPreReq();
 	static {
 		DEFAULT_COURSE_TEXTBOOKS.add(DEFAULT_TEXTBOOK);
 		DEFAULT_PRE_REQS_2.add(DEFAULT_COURSE);
@@ -27,7 +27,7 @@ public class CourseTest extends TestCase {
 		return course;
 	}
 
-	public static Course createCourse2() {
+	public static Course createCourseWithPreReq() {
 		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME,
 				DEFAULT_DEPARTMENT, DEFAULT_CREDIT_NUMBER,
 				DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS_2);

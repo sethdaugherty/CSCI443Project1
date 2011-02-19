@@ -15,6 +15,5 @@ public class Person {
 	
 	public String getCwid() {
 		return cwid;
-	}
-	
+	}	
 }
