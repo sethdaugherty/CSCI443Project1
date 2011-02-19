@@ -61,8 +61,7 @@ public class TeachingSessionManager {
 	private boolean isInstructorInDepartment(TeachingSession session) {
 		Instructor instructor = session.getInstructor();
 		CourseMeeting meeting = session.getCourseMeeting();
-		if (instructor.getDepartment().toString().equals(
-				meeting.getCourse().getDepartment().toString())) {
+		if (instructor.getDepartment().equals(meeting.getCourse().getDepartment())) {
 			return true;
 		} else {
 			return false;
@@ -82,9 +81,5 @@ public class TeachingSessionManager {
 
 	public void clearData() {
 		sessions = new ArrayList<TeachingSession>();
-	}
-
-	public static void main(String[] args) {
-		System.out.println("Hello World");
 	}
 }

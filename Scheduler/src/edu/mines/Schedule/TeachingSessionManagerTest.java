@@ -13,28 +13,33 @@ public class TeachingSessionManagerTest extends TestCase {
 		Instructor instructor = InstructorTest.createInstructor();
 		TeachingSession session = new TeachingSession(instructor, meeting);
 
+		CourseMeeting meeting2 = CourseMeetingTest.createPhysicsMeeting();
+		Instructor instructor2 = InstructorTest.createPhysicsInstructor();
+		TeachingSession session2 = new TeachingSession(instructor2, meeting2);
+		
 		TeachingSessionManager manager = TeachingSessionManager.getInstance();
 		manager.clearData();
 
 		// Add that session to the manager
 		manager.addSession(session);
+		manager.addSession(session2);
 
 		// Now check if the list of teaching sessions contains a meeting with
 		// our instructor
 		ArrayList<TeachingSession> sessions = manager.getSessions();
-		Instructor instructor2;
-		CourseMeeting meeting2;
+		Instructor instructor3;
+		CourseMeeting meeting3;
 		for (TeachingSession s : sessions) {
-			instructor2 = s.getInstructor();
-			meeting2 = s.getCourseMeeting();
+			instructor3 = s.getInstructor();
+			meeting3 = s.getCourseMeeting();
 			// See if our instructor was in the manager's list of sessions and
 			// that he was teaching the right class
 
-			if (instructor2.getName().equals(
+			if (instructor3.getName().equals(
 					InstructorTest.DEFAULT_INSTRUCTOR_NAME)
-					&& instructor2.getCwid().equals(
+					&& instructor3.getCwid().equals(
 							InstructorTest.DEFAULT_INSTRUCTOR_CWID)
-					&& meeting2.toString().equals(meeting.toString())) {
+					&& meeting3.toString().equals(meeting.toString())) {
 				assertTrue(true);
 				break;
 			}

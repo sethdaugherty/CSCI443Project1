@@ -85,6 +85,16 @@ public class CourseMeetingTest extends TestCase {
 
 		return meeting;
 	}
+	
+	public static CourseMeeting createPhysicsMeeting() {
+		Course course = CourseTest.createPhysicsCourse();
+		Classroom room = new Classroom(DEFAULT_CLASSROOM_ROOM,
+				DEFAULT_CLASSROOM_BUILDING, DEFAULT_CLASSROOM_CAPACITY);
+		CourseMeeting meeting = new CourseMeeting(course, room,
+				DEFAULT_MEETING_TIME, DEFAULT_MEETING_LENGTH);
+
+		return meeting;
+	}
 
 	/**
 	 * Test that we can set up a course meeting correctly by creating a time,
