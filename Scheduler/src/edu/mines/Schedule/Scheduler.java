@@ -1,6 +1,8 @@
 package edu.mines.Schedule;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -40,8 +42,7 @@ public class Scheduler {
 		studentList.add(student2);
 		studentList.add(student3);
 		studentList.add(student4);
-		studentList.add(student5);
-				
+		studentList.add(student5);	
 	}
 	
 	private void setupCourseMeetings() {
@@ -105,6 +106,7 @@ public class Scheduler {
 	}
 	
 	private void handleChoice(int choice) {
+		System.out.println(choice);
 		switch(choice) {
 			case 1:
 			default:
@@ -145,9 +147,10 @@ public class Scheduler {
 		
 		System.out.println("Welcome to the simple scheduling system.");
 		scheduler.printMenu();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		while( true ) {
-			int choice = System.in.read();
-			scheduler.handleChoice(choice);
+			String choice = br.readLine();
+			scheduler.handleChoice(Integer.parseInt(choice.trim()));
 		}
 		
 	}
