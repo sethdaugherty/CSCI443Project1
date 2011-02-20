@@ -4,7 +4,7 @@ package edu.mines.Schedule;
  * Represents a Classroom for the purpose of scheduling.
  * ENUM.
  */
-public enum Classroom {
+enum Classroom {
 	Test("101", "Somewhere", 2), 
 	GC249("249", "Green Center", 30), 
 	CTLM102("102", "Center For Learning Media", 100), 
@@ -20,15 +20,15 @@ public enum Classroom {
 		this.maxCapacity = maxCapacity;
 	}
 
-	public String getRoomNumber() {
+	String getRoomNumber() {
 		return roomNumber;
 	}
 
-	public String getBuilding() {
+	String getBuilding() {
 		return building;
 	}
 
-	public int getMaxCapacity() {
+	int getMaxCapacity() {
 		return maxCapacity;
 	}
 

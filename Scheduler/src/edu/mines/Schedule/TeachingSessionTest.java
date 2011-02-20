@@ -29,13 +29,13 @@ public class TeachingSessionTest extends TestCase {
 		
 		TeachingSession teachingSession = new TeachingSession(instructor, courseMeeting);
 		assertEquals("Instructor didn't match", "Noble Varughese",
-				teachingSession.instructor.getName());
+				teachingSession.getInstructor().getName());
 		assertEquals("Course didn't match", course,
-				teachingSession.courseMeeting.getCourse());
+				teachingSession.getCourseMeeting().getCourse());
 		assertEquals("Meeting time didn't match", MEETING_TIME,
-				teachingSession.courseMeeting.getMeetingTime());
+				teachingSession.getCourseMeeting().getMeetingTime());
 		assertEquals("Wrong department", department,
-				teachingSession.instructor.getDepartment());
+				teachingSession.getInstructor().getDepartment());
 	}
 
 }

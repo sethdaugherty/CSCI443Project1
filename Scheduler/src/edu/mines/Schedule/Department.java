@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Represents a Department for the purpose of scheduling.
  * ENUM.
  */
-public enum Department {
+enum Department {
 	CS("Computer Science", "CSCI"),
 	ENG("Engineering", "ENGN"),
 	MATH("Mathematics", "MATH"),
@@ -46,6 +46,7 @@ public enum Department {
 		return code;
 	}
 	
+	@Override
 	public String toString(){
 		return name + " " + code;
 	}

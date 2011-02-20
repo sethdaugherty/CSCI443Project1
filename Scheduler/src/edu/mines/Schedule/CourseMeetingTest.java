@@ -4,7 +4,7 @@ import java.util.Date;
 import junit.framework.TestCase;
 
 /**
- * Tests {@link CourseMeeting} to ensure it operates correctly
+ * Tests {@link Course} to ensure it operates correctly
  */
 public class CourseMeetingTest extends TestCase {
 

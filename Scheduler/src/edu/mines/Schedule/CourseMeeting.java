@@ -12,14 +12,14 @@ import java.util.Date;
  * Also, includes method to add to the number of currently enrolled students,
  * for the purpose of ensuring the Classroom is not full.
  */
-public class CourseMeeting {
+class CourseMeeting {
 	private Course course;
 	private Classroom classroom;
 	private Date meetingTime;
 	private int meetingLength;
 	private int numEnrolledStudents;
 
-	public CourseMeeting(Course course, Classroom room, Date time, int length) {
+	CourseMeeting(Course course, Classroom room, Date time, int length) {
 		this.course = course;
 		this.classroom = room;
 		this.meetingTime = time;
@@ -27,35 +27,36 @@ public class CourseMeeting {
 		this.numEnrolledStudents = 0;
 	}
 
-	public Date getEndTime() {
+	Date getEndTime() {
 		long endTime = meetingTime.getTime() + getMilliSeconds(meetingLength);
 		return new Date(endTime);
 	}
 
-	public static long getMilliSeconds(int num) {
+	static long getMilliSeconds(int num) {
 		return 60000 * num;
 	}
 
-	public Course getCourse() {
+	Course getCourse() {
 		return course;
 	}
 
-	public Classroom getClassroom() {
+	Classroom getClassroom() {
 		return classroom;
 	}
 
-	public Date getMeetingTime() {
+	Date getMeetingTime() {
 		return meetingTime;
 	}
 
-	public int getMeetingLength() {
+	int getMeetingLength() {
 		return meetingLength;
 	}
 
-	public int getNumEnrolledStudents() {
+	int getNumEnrolledStudents() {
 		return numEnrolledStudents;
 	}
 
+	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(course.toString());
@@ -73,7 +74,7 @@ public class CourseMeeting {
 	 * @param otherMeeting
 	 * @return true if they overlap, false otherwise
 	 */
-	public boolean overlap(CourseMeeting otherMeeting) {
+	boolean overlap(CourseMeeting otherMeeting) {
 		Date otherStartTime = otherMeeting.getMeetingTime();
 		Date otherEndTime = otherMeeting.getEndTime();
 
@@ -96,7 +97,7 @@ public class CourseMeeting {
 			return false;
 	}
 
-	public boolean isFull() {
+	boolean isFull() {
 		return numEnrolledStudents == classroom.getMaxCapacity();
 	}
 
@@ -106,7 +107,7 @@ public class CourseMeeting {
 	 * 
 	 * @return false if room is full, true otherwise
 	 */
-	public boolean addStudent() {
+	boolean addStudent() {
 		if (isFull())
 			return false;
 		else {
