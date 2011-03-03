@@ -7,12 +7,12 @@ import java.lang.Double;
  * Represents a course for the purpose of scheduling.
  */
 class Course {
-	private String courseNumber;
-	private String courseName;
-	private double numCredits;
-	private ArrayList<String> textBooks;
-	private ArrayList<Course> preReqs;
-	private Department department;
+	private final String courseNumber;
+	private final String courseName;
+	private final double numCredits;
+	private final ArrayList<String> textBooks;
+	private final ArrayList<Course> preReqs;
+	private final Department department;
 
 	public Course(String courseNumber, String courseName, Department department, double numCredits,
 			ArrayList<String> textBooks, ArrayList<Course> preReqs) {
@@ -23,8 +23,8 @@ class Course {
 			this.numCredits = numCredits;
 		else
 			throw new IllegalArgumentException("Cannot have negative number of credits");
-		this.textBooks = textBooks;
-		this.preReqs = preReqs;
+		this.textBooks = new ArrayList<String>(textBooks);
+		this.preReqs = new ArrayList<Course>(preReqs);
 	}
 
 	public String getCourseNumber() {
@@ -44,11 +44,11 @@ class Course {
 	}
 
 	public ArrayList<String> getTextBooks() {
-		return textBooks;
+		return new ArrayList<String>(textBooks);
 	}
 
 	public ArrayList<Course> getPreReqs() {
-		return preReqs;
+		return new ArrayList<Course>(preReqs);
 	}
 
 	@Override
