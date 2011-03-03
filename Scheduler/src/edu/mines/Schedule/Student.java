@@ -26,7 +26,7 @@ public class Student extends Person {
 	}
 
 	public String getStatus() {
-		double sum = 0;
+    double sum = 0;
 		for (Course course : previousCourses) {
 			sum = course.getNumCredits();
 		}
