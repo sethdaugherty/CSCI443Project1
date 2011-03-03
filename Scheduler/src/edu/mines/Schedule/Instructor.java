@@ -24,8 +24,9 @@ public class Instructor extends Person {
 	@Override
 	public boolean equals(Object obj) {
 		Instructor i = (Instructor) obj;
-
-		if (this.name != i.getName())
+		if(!(obj instanceof Instructor))
+			return false;
+		else if (this.name != i.getName())
 			return false;
 		else if (this.cwid != i.getCwid())
 			return false;

@@ -19,7 +19,10 @@ class Course {
 		this.courseNumber = courseNumber;
 		this.courseName = courseName;
 		this.department = department;
-		this.numCredits = numCredits;
+		if(numCredits >= 0)
+			this.numCredits = numCredits;
+		else
+			throw new IllegalArgumentException("Cannot have negative number of credits");
 		this.textBooks = textBooks;
 		this.preReqs = preReqs;
 	}
