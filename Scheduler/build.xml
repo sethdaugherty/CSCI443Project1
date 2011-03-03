@@ -6,7 +6,7 @@
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
 
-    <property name="main-class"  value="edu.mines.Schedule.TeachingSessionManager"/>
+    <property name="main-class"  value="edu.mines.Schedule.Scheduler"/>
 
 
 	<property name="cobertura.dir" value="etc/cobertura" />

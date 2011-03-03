@@ -2,7 +2,16 @@ package edu.mines.Schedule;
 
 import java.util.ArrayList;
 
-public class TeachingSessionManager {
+/**
+ * Manages all {@link TeachingSession} instances. Allows addition of
+ * {@link TeachingSession} instances and ensures that no {@link Instructor} is
+ * in multiple {@link TeachingSession} instances at the same time and no
+ * {@link Instructor} is teaching a {@link Course} from a different
+ * {@link Department}.
+ * 
+ * SINGLETON.
+ */
+class TeachingSessionManager {
 	private static TeachingSessionManager theInstance = null;
 
 	private ArrayList<TeachingSession> sessions;
@@ -11,25 +20,35 @@ public class TeachingSessionManager {
 		sessions = new ArrayList<TeachingSession>();
 	}
 
-	public void addSession(TeachingSession session) throws Exception {
+	/**
+	 * Adds a {@link TeachingSession} to {@link sessions} if the
+	 * {@link Instructor} in the given {@link TeachingSession} is not included in
+	 * another {@link TeachingSession} at the same time and that the
+	 * {@link Instructor} is from the same {@link Department} as the
+	 * {@link Course}.
+	 * 
+	 * @param session
+	 * @throws IllegalArgumentException
+	 */
+	void addSession(TeachingSession session) throws IllegalArgumentException {
 		if (!isInstructorInDepartment(session)) {
-			throw new Exception(
+			throw new IllegalArgumentException(
 					"The instructor isn't in the same department as the course");
 		}
 
 		if (hasTimeConflict(session)) {
-			throw new Exception("The instructor has a time conflict");
+			throw new IllegalArgumentException("The instructor has a time conflict");
 		}
 
 		sessions.add(session);
 	}
 
 	/**
-	 * Make sure the instructor in the given teaching session isn't already
-	 * signed up to teach a class at the same time
+	 * Make sure the {@link Instructor} in the given {@link TeachingSession} isn't
+	 * already signed up to teach a {@link Course} at the same time.
 	 * 
 	 * @param session
-	 * @return
+	 * @return true if time conflict, false otherwise
 	 */
 	private boolean hasTimeConflict(TeachingSession session) {
 		Instructor newInstructor = session.getInstructor();
@@ -39,9 +58,9 @@ public class TeachingSessionManager {
 			Instructor oldInstructor = s.getInstructor();
 			// This is the same instructor, so lets see if the classes are at
 			// the same time
-			if (newInstructor.toString().equals(oldInstructor.toString())) {
+			if (newInstructor.equals(oldInstructor)) {
 				CourseMeeting oldMeeting = s.getCourseMeeting();
-				if( oldMeeting.overlap(newMeeting) ) {
+				if (oldMeeting.overlap(newMeeting)) {
 					return true;
 				}
 			}
@@ -51,12 +70,12 @@ public class TeachingSessionManager {
 	}
 
 	/**
-	 * Instructors can only teach classes in their department, so this method
-	 * checks if the instructor and the course in the session have the same
-	 * department
+	 * Checks if the {@link Instructor} and the {@link Course} in the session have
+	 * the same {@link Department}.
 	 * 
 	 * @param session
-	 * @return
+	 * @return true if {@link Instructor} is in the same {@link Department} as the
+	 *         {@link Course}, false otherwise.
 	 */
 	private boolean isInstructorInDepartment(TeachingSession session) {
 		Instructor instructor = session.getInstructor();
@@ -68,18 +87,18 @@ public class TeachingSessionManager {
 		}
 	}
 
-	public static TeachingSessionManager getInstance() {
+	static TeachingSessionManager getInstance() {
 		if (theInstance == null) {
 			theInstance = new TeachingSessionManager();
 		}
 		return theInstance;
 	}
 
-	public ArrayList<TeachingSession> getSessions() {
-		return sessions;
+	ArrayList<TeachingSession> getSessions() {
+		return new ArrayList<TeachingSession>(sessions);
 	}
 
-	public void clearData() {
+	void clearData() {
 		sessions = new ArrayList<TeachingSession>();
 	}
 }

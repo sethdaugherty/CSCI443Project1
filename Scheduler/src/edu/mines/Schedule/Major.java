@@ -1,13 +1,12 @@
 package edu.mines.Schedule;
 
-public enum Major {
-	CompSci("Computer Science"), 
-	Mining("Mining"), 
-	CivilEngineering("Civil Engineering"), 
-	MechanicalEngineering("Mechanical Engineer"), 
-	ElectricalEngineering("Electrical Engineering"), 
-	Math("Mathematics"),
-	Physics("Physics");
+/**
+ * Represents a Major for the purpose of scheduling. ENUM.
+ */
+enum Major {
+	CompSci("Computer Science"), Mining("Mining"), CivilEngineering("Civil Engineering"), MechanicalEngineering(
+			"Mechanical Engineer"), ElectricalEngineering("Electrical Engineering"), Math("Mathematics"), Physics(
+			"Physics");
 
 	private final String name;
 

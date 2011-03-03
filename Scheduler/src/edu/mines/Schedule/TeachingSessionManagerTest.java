@@ -2,10 +2,13 @@ package edu.mines.Schedule;
 
 import java.util.ArrayList;
 import java.util.Date;
-
 import junit.framework.TestCase;
 
-public class TeachingSessionManagerTest extends TestCase {
+/**
+ * Tests {@link TeachingSessionManager} to ensure it operates correctly.
+ */
+public class TeachingSessionManagerTest
+		extends TestCase {
 
 	public void testAddTeachingSession() throws Exception {
 
@@ -16,7 +19,7 @@ public class TeachingSessionManagerTest extends TestCase {
 		CourseMeeting meeting2 = CourseMeetingTest.createPhysicsMeeting();
 		Instructor instructor2 = InstructorTest.createPhysicsInstructor();
 		TeachingSession session2 = new TeachingSession(instructor2, meeting2);
-		
+
 		TeachingSessionManager manager = TeachingSessionManager.getInstance();
 		manager.clearData();
 
@@ -35,10 +38,8 @@ public class TeachingSessionManagerTest extends TestCase {
 			// See if our instructor was in the manager's list of sessions and
 			// that he was teaching the right class
 
-			if (instructor3.getName().equals(
-					InstructorTest.DEFAULT_INSTRUCTOR_NAME)
-					&& instructor3.getCwid().equals(
-							InstructorTest.DEFAULT_INSTRUCTOR_CWID)
+			if (instructor3.getName().equals(InstructorTest.DEFAULT_INSTRUCTOR_NAME)
+					&& instructor3.getCwid().equals(InstructorTest.DEFAULT_INSTRUCTOR_CWID)
 					&& meeting3.toString().equals(meeting.toString())) {
 				assertTrue(true);
 				break;
@@ -59,10 +60,9 @@ public class TeachingSessionManagerTest extends TestCase {
 		// Now, create a teaching session at the same time
 		long startTime2 = CourseMeetingTest.DEFAULT_MEETING_TIME.getTime() + 60;
 		Classroom room = Classroom.Test;
-		
-		CourseMeeting meeting2 = new CourseMeeting(CourseTest.createCourse(),
-				room, new Date(startTime2),
-				CourseMeetingTest.DEFAULT_MEETING_LENGTH);
+
+		CourseMeeting meeting2 = new CourseMeeting(CourseTest.createCourse(), room,
+				new Date(startTime2), CourseMeetingTest.DEFAULT_MEETING_LENGTH);
 
 		TeachingSession session2 = new TeachingSession(instructor, meeting2);
 		try {
@@ -70,7 +70,7 @@ public class TeachingSessionManagerTest extends TestCase {
 			// We shouldn't be able to add the session, so if we get here, the
 			// test fails
 			fail();
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			assertTrue(true);
 		}
 	}
@@ -88,7 +88,7 @@ public class TeachingSessionManagerTest extends TestCase {
 			// We shouldn't be able to add the session, so if we get here, the
 			// test fails
 			fail();
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			assertTrue(true);
 		}
 	}

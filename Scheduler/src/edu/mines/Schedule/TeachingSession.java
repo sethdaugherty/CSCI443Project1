@@ -1,21 +1,25 @@
 package edu.mines.Schedule;
 
-public class TeachingSession {
-	
-	public Instructor instructor;
-	public CourseMeeting courseMeeting;
+/**
+ * Represents an {@link Instructor}'s designation to teach a specific
+ * {@link CourseMeeting}.
+ */
+class TeachingSession {
 
-	public TeachingSession(Instructor instructor, CourseMeeting meeting) {
+	private Instructor instructor;
+	private CourseMeeting courseMeeting;
+
+	TeachingSession(Instructor instructor, CourseMeeting meeting) {
 		this.instructor = instructor;
 		this.courseMeeting = meeting;
-		
+
 	}
-	
-	public Instructor getInstructor() {
+
+	Instructor getInstructor() {
 		return instructor;
 	}
 
-	public CourseMeeting getCourseMeeting() {
+	CourseMeeting getCourseMeeting() {
 		return courseMeeting;
 	}
 

@@ -1,19 +1,22 @@
 package edu.mines.Schedule;
 
-public class Person {
-	private String name;
-	private String cwid;
-	
-	public Person(String name, String cwid) {
+/**
+ * Represents a Person for the purpose of scheduling at CSM.
+ */
+class Person {
+	protected String name;
+	protected String cwid;
+
+	Person(String name, String cwid) {
 		this.name = name;
 		this.cwid = cwid;
 	}
-	
-	public String getName() {
+
+	String getName() {
 		return name;
 	}
-	
-	public String getCwid() {
+
+	String getCwid() {
 		return cwid;
-	}	
+	}
 }

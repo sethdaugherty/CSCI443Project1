@@ -2,7 +2,10 @@ package edu.mines.Schedule;
 
 import java.util.ArrayList;
 
-public class Course {
+/**
+ * Represents a course for the purpose of scheduling.
+ */
+class Course {
 	private String courseNumber;
 	private String courseName;
 	private double numCredits;
@@ -10,8 +13,7 @@ public class Course {
 	private ArrayList<Course> preReqs;
 	private Department department;
 
-	public Course(String courseNumber, String courseName,
-			Department department, double numCredits,
+	Course(String courseNumber, String courseName, Department department, double numCredits,
 			ArrayList<String> textBooks, ArrayList<Course> preReqs) {
 		this.courseNumber = courseNumber;
 		this.courseName = courseName;
@@ -21,28 +23,38 @@ public class Course {
 		this.preReqs = preReqs;
 	}
 
-	public String getCourseNumber() {
+	String getCourseNumber() {
 		return courseNumber;
 	}
 
-	public String getCourseName() {
+	String getCourseName() {
 		return courseName;
 	}
 
-	public Department getDepartment() {
+	Department getDepartment() {
 		return department;
 	}
 
-	public double getNumCredits() {
+	double getNumCredits() {
 		return numCredits;
 	}
 
-	public ArrayList<String> getTextBooks() {
+	ArrayList<String> getTextBooks() {
 		return textBooks;
 	}
 
-	public ArrayList<Course> getPreReqs() {
+	ArrayList<Course> getPreReqs() {
 		return preReqs;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(department.getCode());
+		builder.append(courseNumber);
+		builder.append(" ");
+		builder.append(courseName);
+		return builder.toString();
 	}
 
 	@Override
@@ -60,7 +72,7 @@ public class Course {
 		else if (!this.textBooks.containsAll(c.getTextBooks())
 				|| this.textBooks.size() != c.getTextBooks().size())
 			return false;
-		
+
 		return true;
 	}
 
