@@ -87,7 +87,7 @@ class TeachingSessionManager {
 		}
 	}
 
-	static TeachingSessionManager getInstance() {
+	public static TeachingSessionManager getInstance() {
 		if (theInstance == null) {
 			theInstance = new TeachingSessionManager();
 		}

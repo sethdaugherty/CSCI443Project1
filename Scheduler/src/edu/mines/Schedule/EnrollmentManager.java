@@ -24,7 +24,7 @@ class EnrollmentManager {
 		enrollments = new ArrayList<Enrollment>();
 	}
 
-	static EnrollmentManager getInstance() {
+	public static EnrollmentManager getInstance() {
 		if (theInstance == null) {
 			theInstance = new EnrollmentManager();
 		}
