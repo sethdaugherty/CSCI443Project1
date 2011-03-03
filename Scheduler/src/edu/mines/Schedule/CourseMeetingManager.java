@@ -33,12 +33,8 @@ public class CourseMeetingManager {
 	 */
 	private boolean hasTimeConflict(CourseMeeting newMeeting) {
 		for (CourseMeeting oldMeeting : meetingList) {
-			// First, check if the times overlap
-			if (oldMeeting.overlap(newMeeting)) {
-				// Next, check if the see if the classrooms are the same
-				if (oldMeeting.getClassroom().equals(newMeeting.getClassroom())) {
-					return true;
-				}
+			if (oldMeeting.conflictsWith(newMeeting)) {
+			  return true;
 			}
 		}
 
