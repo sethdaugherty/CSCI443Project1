@@ -30,6 +30,7 @@ public class Student
 
 	public String getStatus() {
 		double sum = 0;
+		
 		for (Course course : previousCourses) {
 			sum = course.getNumCredits();
 		}
