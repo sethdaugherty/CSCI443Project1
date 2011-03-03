@@ -1,21 +1,22 @@
 package edu.mines.Schedule;
 
-import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
 import java.lang.Double;
 
 /**
  * Represents a course for the purpose of scheduling.
  */
-class Course {
+final class Course {
 	private final String courseNumber;
 	private final String courseName;
 	private final double numCredits;
-	private final ArrayList<String> textBooks;
-	private final ArrayList<Course> preReqs;
+	private final Set<String> textBooks;
+	private final Set<Course> preReqs;
 	private final Department department;
 
 	public Course(String courseNumber, String courseName, Department department, double numCredits,
-			ArrayList<String> textBooks, ArrayList<Course> preReqs) {
+	    Set<String> textBooks, Set<Course> preReqs) {
 		this.courseNumber = courseNumber;
 		this.courseName = courseName;
 		this.department = department;
@@ -23,8 +24,8 @@ class Course {
 			this.numCredits = numCredits;
 		else
 			throw new IllegalArgumentException("Cannot have negative number of credits");
-		this.textBooks = new ArrayList<String>(textBooks);
-		this.preReqs = new ArrayList<Course>(preReqs);
+		this.textBooks = new HashSet<String>(textBooks);
+		this.preReqs = new HashSet<Course>(preReqs);
 	}
 
 	public String getCourseNumber() {
@@ -43,12 +44,12 @@ class Course {
 		return numCredits;
 	}
 
-	public ArrayList<String> getTextBooks() {
-		return new ArrayList<String>(textBooks);
+	public Set<String> getTextBooks() {
+		return new HashSet<String>(textBooks);
 	}
 
-	public ArrayList<Course> getPreReqs() {
-		return new ArrayList<Course>(preReqs);
+	public Set<Course> getPreReqs() {
+		return new HashSet<Course>(preReqs);
 	}
 
 	@Override

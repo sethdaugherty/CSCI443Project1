@@ -1,6 +1,7 @@
 package edu.mines.Schedule;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Manages all {@link CourseMeeting} instances. Allows addition of
@@ -10,11 +11,11 @@ import java.util.ArrayList;
  * SINGLETON.
  */
 public class CourseMeetingManager {
-	private ArrayList<CourseMeeting> meetingList;
+	private Set<CourseMeeting> meetingList;
 	private static CourseMeetingManager theInstance = null;
 
 	private CourseMeetingManager() {
-		meetingList = new ArrayList<CourseMeeting>();
+		meetingList = new HashSet<CourseMeeting>();
 	}
 
 	public static CourseMeetingManager getInstance() {
@@ -55,10 +56,10 @@ public class CourseMeetingManager {
 	}
 
 	public void clearData() {
-		meetingList = new ArrayList<CourseMeeting>();
+		meetingList = new HashSet<CourseMeeting>();
 	}
 
-	public ArrayList<CourseMeeting> getCourseMeetingList() {
-		return new ArrayList<CourseMeeting>(meetingList);
+	public Set<CourseMeeting> getCourseMeetingList() {
+		return new HashSet<CourseMeeting>(meetingList);
 	}
 }

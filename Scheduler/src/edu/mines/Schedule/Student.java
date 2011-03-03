@@ -1,31 +1,32 @@
 package edu.mines.Schedule;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Represents a Student for the purpose of scheduling. Extends {@link Person}.
  */
-public class Student
+public final class Student
 		extends Person {
-	public Student(String name, String cwid, ArrayList<Major> majors, ArrayList<Course> previousCourses) {
+	public Student(String name, String cwid, Set<Major> majors, Set<Course> previousCourses) {
 		super(name, cwid);
-		this.majors = new ArrayList<Major>(majors);
-		this.previousCourses = new ArrayList<Course>(previousCourses);
+		this.majors = new HashSet<Major>(majors);
+		this.previousCourses = new HashSet<Course>(previousCourses);
 	}
 
 	private static final double SOPHMORE_LEVEL = 30;
 	private static final double JUNIOR_LEVEL = 60;
 	private static final double SENIOR_LEVEL = 90;
 
-	private final ArrayList<Major> majors;
-	private final ArrayList<Course> previousCourses;
+	private final Set<Major> majors;
+	private final Set<Course> previousCourses;
 
-	public ArrayList<Major> getMajor() {
-		return new ArrayList<Major>(majors);
+	public Set<Major> getMajor() {
+		return new HashSet<Major>(majors);
 	}
 
-	public ArrayList<Course> getCourses() {
-		return new ArrayList<Course>(previousCourses);
+	public Set<Course> getCourses() {
+		return new HashSet<Course>(previousCourses);
 	}
 
 	public String getStatus() {

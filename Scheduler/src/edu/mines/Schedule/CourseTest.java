@@ -1,6 +1,7 @@
 package edu.mines.Schedule;
 
-import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
 import junit.framework.TestCase;
 
 /**
@@ -12,21 +13,21 @@ public class CourseTest extends TestCase {
 	public static final String DEFAULT_COURSE_NAME = "Intro to Computer Science";
 	public static final double DEFAULT_CREDIT_NUMBER = 3;
 	public static final double DEFAULT_CREDIT_NUMBER_2 = 60;
-	public static final ArrayList<String> DEFAULT_COURSE_TEXTBOOKS = new ArrayList<String>();
+	public static final Set<String> DEFAULT_COURSE_TEXTBOOKS = new HashSet<String>();
 	public static final String DEFAULT_TEXTBOOK = "Computer Science Book";
 	public static final Department DEFAULT_DEPARTMENT = Department.CS;
 	public static final String DEFAULT_PHYSICS_COURSE_NUMBER = "200";
 	public static final String DEFAULT_PHYSICS_COURSE_NAME = "Introductory Mechanics";
 	public static final double DEFAULT_PHYSICS_CREDIT_NUMBER = 4.5;
-	public static final ArrayList<String> DEFAULT_PHYSICS_COURSE_TEXTBOOKS = new ArrayList<String>();
+	public static final Set<String> DEFAULT_PHYSICS_COURSE_TEXTBOOKS = new HashSet<String>();
 	public static final String DEFAULT_PHYSICS_TEXTBOOK = "A Physics Book";
 	public static final Department DEFAULT_PHYSICS_DEPARTMENT = Department.PHYS;
-	public static final ArrayList<Course> DEFAULT_PRE_REQS = new ArrayList<Course>();
-	public static final ArrayList<Course> DEFAULT_PRE_REQS_2 = new ArrayList<Course>();
-	public static final ArrayList<Course> DEFAULT_PRE_REQS_3 = new ArrayList<Course>();
-	public static final ArrayList<Course> DEFAULT_PRE_REQS_4 = new ArrayList<Course>();
-	public static final ArrayList<Course> DEFAULT_PRE_REQS_5 = new ArrayList<Course>();
-	public static final ArrayList<Course> DEFAULT_PHYSICS_PRE_REQS = new ArrayList<Course>();
+	public static final Set<Course> DEFAULT_PRE_REQS = new HashSet<Course>();
+	public static final Set<Course> DEFAULT_PRE_REQS_2 = new HashSet<Course>();
+	public static final Set<Course> DEFAULT_PRE_REQS_3 = new HashSet<Course>();
+	public static final Set<Course> DEFAULT_PRE_REQS_4 = new HashSet<Course>();
+	public static final Set<Course> DEFAULT_PRE_REQS_5 = new HashSet<Course>();
+	public static final Set<Course> DEFAULT_PHYSICS_PRE_REQS = new HashSet<Course>();
 	public static final Course DEFAULT_COURSE = createCourse();
 	public static final Course DEFAULT_COURSE_WITH_PREREQ = createCourseWithPreReq();
 	public static final Course DEFAULT_COURSE_2 = createCourseWithPreReq();
