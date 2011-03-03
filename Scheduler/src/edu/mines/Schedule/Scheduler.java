@@ -139,7 +139,7 @@ public class Scheduler {
 
 	private void addStudent() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Enter the number of an instructor:");
+		System.out.println("Enter the number of a student:");
 		int x = 0;
 		for (Student student : studentList) {
 			System.out.println(x + " " + student.toString());

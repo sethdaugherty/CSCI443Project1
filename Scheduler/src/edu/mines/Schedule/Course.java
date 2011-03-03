@@ -1,4 +1,4 @@
-package edu.mines.Schedule;
+ package edu.mines.Schedule;
 
 import java.util.ArrayList;
 import java.lang.Double;
