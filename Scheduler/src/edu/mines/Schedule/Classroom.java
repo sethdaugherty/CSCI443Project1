@@ -1,14 +1,11 @@
 package edu.mines.Schedule;
 
 /**
- * Represents a Classroom for the purpose of scheduling.
- * ENUM.
+ * Represents a Classroom for the purpose of scheduling. ENUM.
  */
 enum Classroom {
-	Test("101", "Somewhere", 2), 
-	GC249("249", "Green Center", 30), 
-	CTLM102("102", "Center For Learning Media", 100), 
-	CO209("209", "Coolbaugh Hall", 200);
+	Test("101", "Somewhere", 2), GC249("249", "Green Center", 30), CTLM102("102",
+			"Center For Learning Media", 100), CO209("209", "Coolbaugh Hall", 200);
 
 	private String roomNumber;
 	private String building;

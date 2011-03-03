@@ -40,30 +40,25 @@ class EnrollmentManager {
 	 * @param enrollment
 	 * @throws IllegalArgumentException
 	 */
-	void addEnrollment(Enrollment enrollment)
-			throws IllegalArgumentException {
+	void addEnrollment(Enrollment enrollment) throws IllegalArgumentException {
 		// Check for pre-reqs
-		if (!hasPreReqs(enrollment)) 
-			throw new IllegalArgumentException(
-					"Must have the required pre-reqs");
-		
+		if (!hasPreReqs(enrollment))
+			throw new IllegalArgumentException("Must have the required pre-reqs");
+
 		// Check for Time Conflict
-		if (hasTimeConflict(enrollment)) 
-			throw new IllegalArgumentException(
-					"Cannot have two classes at the same time");
+		if (hasTimeConflict(enrollment))
+			throw new IllegalArgumentException("Cannot have two classes at the same time");
 
 		// Check if already enrolled in provided Course
-		if (hasCourse(enrollment)) 
+		if (hasCourse(enrollment))
 			throw new IllegalArgumentException(
-					"Cannot have a student enrolled in two meetings of the same course"
-							+ " at the same time");
-		
+					"Cannot have a student enrolled in two meetings of the same course" + " at the same time");
+
 		// Check if room in the CourseMeeting
-		if (enrollment.getCourseMeeting().addStudent()) 
+		if (enrollment.getCourseMeeting().addStudent())
 			enrollments.add(enrollment);
 		else
-			throw new IllegalArgumentException(
-					"Cannot have a student enrolled in a full class");
+			throw new IllegalArgumentException("Cannot have a student enrolled in a full class");
 	}
 
 	ArrayList<Enrollment> getEnrollments() {
@@ -71,16 +66,16 @@ class EnrollmentManager {
 	}
 
 	/**
-	 * Make sure the {@link Student} in {@link enrollment} has the pre-reqs required
-	 * for the {@link Course} in the {@link enrollment}'s {@link CourseMeeting}.
+	 * Make sure the {@link Student} in {@link enrollment} has the pre-reqs
+	 * required for the {@link Course} in the {@link enrollment}'s
+	 * {@link CourseMeeting}.
 	 * 
 	 * @param enrollment
 	 * @return true if the {@link Student} has the pre-reqs, false otehrwise.
 	 */
 	private boolean hasPreReqs(Enrollment enrollment) {
 		ArrayList<Course> studentCourses = enrollment.getStudent().getCourses();
-		return studentCourses.containsAll(enrollment.getCourseMeeting()
-				.getCourse().getPreReqs());
+		return studentCourses.containsAll(enrollment.getCourseMeeting().getCourse().getPreReqs());
 	}
 
 	/**
@@ -111,11 +106,12 @@ class EnrollmentManager {
 
 	/**
 	 * Make sure the {@link Student} in {@link enrollment} is not currently
-	 * enrolled in the same (@link Course} as in another of the {@link Student}
-	 * 's {@link Enrollment}s.
+	 * enrolled in the same (@link Course} as in another of the {@link Student} 's
+	 * {@link Enrollment}s.
 	 * 
 	 * @param enrollment
-	 * @return true if the Student is already enrolled in the course, false otherwise.
+	 * @return true if the Student is already enrolled in the course, false
+	 *         otherwise.
 	 */
 	private boolean hasCourse(Enrollment enrollment) {
 		Student newStudent = enrollment.getStudent();

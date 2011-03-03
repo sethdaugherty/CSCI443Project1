@@ -43,39 +43,35 @@ public class CourseTest extends TestCase {
 	}
 
 	public static Course createCourse() {
-		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME, DEFAULT_DEPARTMENT, DEFAULT_CREDIT_NUMBER,
-				DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS);
+		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME, DEFAULT_DEPARTMENT,
+				DEFAULT_CREDIT_NUMBER, DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS);
 		return course;
 	}
 
 	public static Course createCourseWithPreReq() {
-		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME,
-				DEFAULT_DEPARTMENT, DEFAULT_CREDIT_NUMBER,
-				DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS_2);
+		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME, DEFAULT_DEPARTMENT,
+				DEFAULT_CREDIT_NUMBER, DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS_2);
 		return course;
 	}
-	
+
 	public static Course createCourse3() {
-		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME,
-				DEFAULT_DEPARTMENT, DEFAULT_CREDIT_NUMBER_2,
-				DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS);
+		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME, DEFAULT_DEPARTMENT,
+				DEFAULT_CREDIT_NUMBER_2, DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS);
 		return course;
 	}
-	
+
 	public static Course createCourse4() {
-		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME,
-				DEFAULT_DEPARTMENT, DEFAULT_CREDIT_NUMBER_2 - 1,
-				DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS);
+		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME, DEFAULT_DEPARTMENT,
+				DEFAULT_CREDIT_NUMBER_2 - 1, DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS);
 		return course;
 	}
-	
+
 	public static Course createCourse5() {
-		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME,
-				DEFAULT_DEPARTMENT, DEFAULT_CREDIT_NUMBER_2 + 30,
-				DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS);
+		Course course = new Course(DEFAULT_COURSE_NUMBER, DEFAULT_COURSE_NAME, DEFAULT_DEPARTMENT,
+				DEFAULT_CREDIT_NUMBER_2 + 30, DEFAULT_COURSE_TEXTBOOKS, DEFAULT_PRE_REQS);
 		return course;
 	}
-	
+
 	public static Course createPhysicsCourse() {
 		Course course = new Course(DEFAULT_PHYSICS_COURSE_NUMBER, DEFAULT_PHYSICS_COURSE_NAME,
 				DEFAULT_PHYSICS_DEPARTMENT, DEFAULT_PHYSICS_CREDIT_NUMBER,
@@ -86,14 +82,10 @@ public class CourseTest extends TestCase {
 	public void testCreateStudent() {
 		Course course = createCourse();
 
-		assertEquals("Course Number is incorrect", course.getCourseNumber(),
-				DEFAULT_COURSE_NUMBER);
-		assertEquals("Course Name is incorrect", course.getCourseName(),
-				DEFAULT_COURSE_NAME);
-		assertEquals("Credit Number is incorrect", course.getNumCredits(),
-				DEFAULT_CREDIT_NUMBER);
-		assertEquals("Textbooks are incorrect", course.getTextBooks().contains(
-				DEFAULT_TEXTBOOK), true);
+		assertEquals("Course Number is incorrect", course.getCourseNumber(), DEFAULT_COURSE_NUMBER);
+		assertEquals("Course Name is incorrect", course.getCourseName(), DEFAULT_COURSE_NAME);
+		assertEquals("Credit Number is incorrect", course.getNumCredits(), DEFAULT_CREDIT_NUMBER);
+		assertEquals("Textbooks are incorrect", course.getTextBooks().contains(DEFAULT_TEXTBOOK), true);
 	}
 
 }

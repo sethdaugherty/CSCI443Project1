@@ -13,8 +13,7 @@ class Course {
 	private ArrayList<Course> preReqs;
 	private Department department;
 
-	Course(String courseNumber, String courseName,
-			Department department, double numCredits,
+	Course(String courseNumber, String courseName, Department department, double numCredits,
 			ArrayList<String> textBooks, ArrayList<Course> preReqs) {
 		this.courseNumber = courseNumber;
 		this.courseName = courseName;

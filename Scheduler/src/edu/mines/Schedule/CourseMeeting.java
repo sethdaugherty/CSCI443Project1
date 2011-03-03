@@ -85,12 +85,10 @@ class CourseMeeting {
 		else if (this.getEndTime() == otherEndTime)
 			return true;
 		// Check for one starting before and ending after the other starts
-		else if (this.meetingTime.before(otherStartTime)
-				&& this.getEndTime().after(otherStartTime))
+		else if (this.meetingTime.before(otherStartTime) && this.getEndTime().after(otherStartTime))
 			return true;
 		// Check for previous situation reversed
-		else if (otherStartTime.before(this.meetingTime)
-				&& otherEndTime.after(this.meetingTime))
+		else if (otherStartTime.before(this.meetingTime) && otherEndTime.after(this.meetingTime))
 			return true;
 		// Otherwise return false
 		else
@@ -102,8 +100,8 @@ class CourseMeeting {
 	}
 
 	/**
-	 * Increases the {@link numEnrolledStudents} variable by one if there is
-	 * room in the {@link Classroom}.
+	 * Increases the {@link numEnrolledStudents} variable by one if there is room
+	 * in the {@link Classroom}.
 	 * 
 	 * @return false if room is full, true otherwise
 	 */

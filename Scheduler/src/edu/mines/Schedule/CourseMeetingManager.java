@@ -51,11 +51,9 @@ class CourseMeetingManager {
 	 * @param meeting
 	 * @throws IllegalArgumentException
 	 */
-	void addCourseMeeting(CourseMeeting meeting)
-			throws IllegalArgumentException {
+	void addCourseMeeting(CourseMeeting meeting) throws IllegalArgumentException {
 		if (hasTimeConflict(meeting)) {
-			throw new IllegalArgumentException(
-					"Course meetings have a time conflict");
+			throw new IllegalArgumentException("Course meetings have a time conflict");
 		}
 		meetingList.add(meeting);
 	}
