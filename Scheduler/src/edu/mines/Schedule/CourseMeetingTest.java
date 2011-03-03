@@ -70,7 +70,7 @@ public class CourseMeetingTest extends TestCase {
 
 	public static CourseMeeting createMeetingOther() {
 		Course course = CourseTest.createCourse();
-		Classroom room = Classroom.Test;
+		Classroom room = Classroom.CTLM102;
 		CourseMeeting meeting = new CourseMeeting(course, room, DEFAULT_MEETING_TIME_OTHER,
 				DEFAULT_MEETING_LENGTH_2);
 
@@ -113,5 +113,16 @@ public class CourseMeetingTest extends TestCase {
 		assertEquals("Should overlap", normMeeting.overlap(normMeeting), true);
 		assertEquals("Should not overlap", otherMeeting.overlap(normMeeting), false);
 	}
+	
+	/**
+	 * Test same classroom
+	 */
+	public void testSameClassroom() {
+    CourseMeeting normMeeting = createMeeting();
+    CourseMeeting otherMeeting = createMeetingOther();
+
+    assertEquals("Should have same classroom", normMeeting.sameClassroomAs(normMeeting), true);
+    assertEquals("Should not have same classroom", otherMeeting.overlap(normMeeting), false);
+  }
 
 }
