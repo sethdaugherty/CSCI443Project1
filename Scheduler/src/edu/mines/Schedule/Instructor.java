@@ -34,4 +34,15 @@ class Instructor extends Person {
 
 		return true;
 	}
+	
+	@Override
+  public int hashCode() {
+    int hash=7;
+    
+    hash = 31*hash + name.hashCode();
+    hash = 31*hash + cwid.hashCode();
+    hash = 31*hash + department.hashCode();
+    
+    return hash;
+  }
 }

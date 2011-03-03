@@ -129,4 +129,16 @@ class CourseMeeting {
 
 		return true;
 	}
+	
+	@Override
+  public int hashCode() {
+    int hash=7;
+    
+    hash = 31*hash + course.hashCode();
+    hash = 31*hash + classroom.hashCode();
+    hash = 31*hash + meetingTime.hashCode();
+    hash = 31*hash + meetingLength;
+    
+    return hash;
+  }
 }

@@ -1,6 +1,7 @@
 package edu.mines.Schedule;
 
 import java.util.ArrayList;
+import java.lang.Double;
 
 /**
  * Represents a course for the purpose of scheduling.
@@ -75,5 +76,18 @@ class Course {
 
 		return true;
 	}
+	
+	@Override
+  public int hashCode() {
+    int hash=7;
+    
+    hash = 31*hash + courseName.hashCode();
+    hash = 31*hash + courseNumber.hashCode();
+    hash = 31*hash + new Double(numCredits).hashCode();
+    hash = 31*hash + department.hashCode();
+    hash = 31*hash + textBooks.hashCode();
+    
+    return hash;
+  }
 
 }
