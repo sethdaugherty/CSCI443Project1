@@ -5,9 +5,9 @@ import java.util.ArrayList;
 /**
  * Represents a Student for the purpose of scheduling. Extends {@link Person}.
  */
-class Student
+public class Student
 		extends Person {
-	Student(String name, String cwid, ArrayList<Major> majors, ArrayList<Course> previousCourses) {
+	public Student(String name, String cwid, ArrayList<Major> majors, ArrayList<Course> previousCourses) {
 		super(name, cwid);
 		this.majors = majors;
 		this.previousCourses = previousCourses;
@@ -20,15 +20,15 @@ class Student
 	private ArrayList<Major> majors;
 	private ArrayList<Course> previousCourses;
 
-	ArrayList<Major> getMajor() {
+	public ArrayList<Major> getMajor() {
 		return new ArrayList<Major>(majors);
 	}
 
-	ArrayList<Course> getCourses() {
+	public ArrayList<Course> getCourses() {
 		return new ArrayList<Course>(previousCourses);
 	}
 
-	String getStatus() {
+	public String getStatus() {
 		double sum = 0;
 		for (Course course : previousCourses) {
 			sum = course.getNumCredits();

@@ -4,20 +4,20 @@ package edu.mines.Schedule;
  * Represents a {@link Student} instance's enrollment in a {@link CourseMeeting}
  * .
  */
-class Enrollment {
+public class Enrollment {
 	private Student student;
 	private CourseMeeting courseMeeting;
 
-	Enrollment(Student student, CourseMeeting courseMeeting) {
+	public Enrollment(Student student, CourseMeeting courseMeeting) {
 		this.student = student;
 		this.courseMeeting = courseMeeting;
 	}
 
-	Student getStudent() {
+	public Student getStudent() {
 		return this.student;
 	}
 
-	CourseMeeting getCourseMeeting() {
+	public CourseMeeting getCourseMeeting() {
 		return this.courseMeeting;
 	}
 
