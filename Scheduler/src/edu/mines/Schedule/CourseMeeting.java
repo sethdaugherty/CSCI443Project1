@@ -12,14 +12,14 @@ import java.util.Date;
  * Also, includes method to add to the number of currently enrolled students,
  * for the purpose of ensuring the Classroom is not full.
  */
-class CourseMeeting {
+public class CourseMeeting {
 	private Course course;
 	private Classroom classroom;
 	private Date meetingTime;
 	private int meetingLength;
 	private int numEnrolledStudents;
 
-	CourseMeeting(Course course, Classroom room, Date time, int length) {
+	public CourseMeeting(Course course, Classroom room, Date time, int length) {
 		this.course = course;
 		this.classroom = room;
 		this.meetingTime = time;
@@ -27,32 +27,32 @@ class CourseMeeting {
 		this.numEnrolledStudents = 0;
 	}
 
-	Date getEndTime() {
+	public Date getEndTime() {
 		long endTime = meetingTime.getTime() + getMilliSeconds(meetingLength);
 		return new Date(endTime);
 	}
 
-	static long getMilliSeconds(int num) {
+	public static long getMilliSeconds(int num) {
 		return 60000 * num;
 	}
 
-	Course getCourse() {
+	public Course getCourse() {
 		return course;
 	}
 
-	Classroom getClassroom() {
+	public Classroom getClassroom() {
 		return classroom;
 	}
 
-	Date getMeetingTime() {
+	public Date getMeetingTime() {
 		return meetingTime;
 	}
 
-	int getMeetingLength() {
+	public int getMeetingLength() {
 		return meetingLength;
 	}
 
-	int getNumEnrolledStudents() {
+	public int getNumEnrolledStudents() {
 		return numEnrolledStudents;
 	}
 
@@ -74,7 +74,7 @@ class CourseMeeting {
 	 * @param otherMeeting
 	 * @return true if they overlap, false otherwise
 	 */
-	boolean overlap(CourseMeeting otherMeeting) {
+	public boolean overlap(CourseMeeting otherMeeting) {
 		Date otherStartTime = otherMeeting.getMeetingTime();
 		Date otherEndTime = otherMeeting.getEndTime();
 
@@ -95,7 +95,7 @@ class CourseMeeting {
 			return false;
 	}
 
-	boolean isFull() {
+	public boolean isFull() {
 		return numEnrolledStudents == classroom.getMaxCapacity();
 	}
 
@@ -105,7 +105,7 @@ class CourseMeeting {
 	 * 
 	 * @return false if room is full, true otherwise
 	 */
-	boolean addStudent() {
+	public boolean addStudent() {
 		if (isFull())
 			return false;
 		else {

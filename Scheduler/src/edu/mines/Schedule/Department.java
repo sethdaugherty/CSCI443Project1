@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Represents a Department for the purpose of scheduling. ENUM.
  */
-enum Department {
+public enum Department {
 	CS("Computer Science", "CSCI"), ENG("Engineering", "ENGN"), MATH("Mathematics", "MATH"), MNG(
 			"Mining", "MNGN"), PHYS("Physics", "PHGN");
 
@@ -29,15 +29,15 @@ enum Department {
 		this.majors = new ArrayList<Major>();
 	}
 
-	ArrayList<Major> getMajors() {
+	public ArrayList<Major> getMajors() {
 		return new ArrayList<Major>(majors);
 	}
 
-	String getName() {
+	public String getName() {
 		return name;
 	}
 
-	String getCode() {
+	public String getCode() {
 		return code;
 	}
 
