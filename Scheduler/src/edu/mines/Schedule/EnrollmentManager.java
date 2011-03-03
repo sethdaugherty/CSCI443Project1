@@ -1,6 +1,7 @@
 package edu.mines.Schedule;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Manages all {@link Enrollment} instances. Allows addition of
@@ -18,10 +19,10 @@ import java.util.ArrayList;
 public class EnrollmentManager {
 	private static EnrollmentManager theInstance = null;
 
-	private ArrayList<Enrollment> enrollments;
+	private Set<Enrollment> enrollments;
 
 	private EnrollmentManager() {
-		enrollments = new ArrayList<Enrollment>();
+		enrollments = new HashSet<Enrollment>();
 	}
 
 	public static EnrollmentManager getInstance() {
@@ -61,7 +62,7 @@ public class EnrollmentManager {
 			throw new IllegalArgumentException("Cannot have a student enrolled in a full class");
 	}
 
-	public ArrayList<Enrollment> getEnrollments() {
+	public Set<Enrollment> getEnrollments() {
 		return enrollments;
 	}
 
@@ -74,7 +75,7 @@ public class EnrollmentManager {
 	 * @return true if the {@link Student} has the pre-reqs, false otehrwise.
 	 */
 	private boolean hasPreReqs(Enrollment enrollment) {
-		ArrayList<Course> studentCourses = enrollment.getStudent().getCourses();
+		Set<Course> studentCourses = enrollment.getStudent().getCourses();
 		return studentCourses.containsAll(enrollment.getCourseMeeting().getCourse().getPreReqs());
 	}
 

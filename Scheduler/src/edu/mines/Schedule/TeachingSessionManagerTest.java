@@ -1,7 +1,8 @@
 package edu.mines.Schedule;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.Set;
+
 import junit.framework.TestCase;
 
 /**
@@ -29,7 +30,7 @@ public class TeachingSessionManagerTest
 
 		// Now check if the list of teaching sessions contains a meeting with
 		// our instructor
-		ArrayList<TeachingSession> sessions = manager.getSessions();
+		Set<TeachingSession> sessions = manager.getSessions();
 		Instructor instructor3;
 		CourseMeeting meeting3;
 		for (TeachingSession s : sessions) {
