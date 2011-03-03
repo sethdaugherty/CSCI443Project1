@@ -9,16 +9,16 @@ public class Student
 		extends Person {
 	public Student(String name, String cwid, ArrayList<Major> majors, ArrayList<Course> previousCourses) {
 		super(name, cwid);
-		this.majors = majors;
-		this.previousCourses = previousCourses;
+		this.majors = new ArrayList<Major>(majors);
+		this.previousCourses = new ArrayList<Course>(previousCourses);
 	}
 
 	private static final double SOPHMORE_LEVEL = 30;
 	private static final double JUNIOR_LEVEL = 60;
 	private static final double SENIOR_LEVEL = 90;
 
-	private ArrayList<Major> majors;
-	private ArrayList<Course> previousCourses;
+	private final ArrayList<Major> majors;
+	private final ArrayList<Course> previousCourses;
 
 	public ArrayList<Major> getMajor() {
 		return new ArrayList<Major>(majors);
