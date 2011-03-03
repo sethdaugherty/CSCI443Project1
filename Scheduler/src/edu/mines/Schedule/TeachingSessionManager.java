@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * 
  * SINGLETON.
  */
-class TeachingSessionManager {
+public class TeachingSessionManager {
 	private static TeachingSessionManager theInstance = null;
 
 	private ArrayList<TeachingSession> sessions;
@@ -30,7 +30,7 @@ class TeachingSessionManager {
 	 * @param session
 	 * @throws IllegalArgumentException
 	 */
-	void addSession(TeachingSession session) throws IllegalArgumentException {
+	public void addSession(TeachingSession session) throws IllegalArgumentException {
 		if (!isInstructorInDepartment(session)) {
 			throw new IllegalArgumentException(
 					"The instructor isn't in the same department as the course");
@@ -94,11 +94,11 @@ class TeachingSessionManager {
 		return theInstance;
 	}
 
-	ArrayList<TeachingSession> getSessions() {
+	public ArrayList<TeachingSession> getSessions() {
 		return new ArrayList<TeachingSession>(sessions);
 	}
 
-	void clearData() {
+	public void clearData() {
 		sessions = new ArrayList<TeachingSession>();
 	}
 }

@@ -4,15 +4,15 @@ package edu.mines.Schedule;
  * Represents an Instructor for the purpose of scheduling. Extends
  * {@link Person}.
  */
-class Instructor extends Person {
+public class Instructor extends Person {
 	private final Department department;
 
-	Instructor(String name, String cwid, Department department) {
+	public Instructor(String name, String cwid, Department department) {
 		super(name, cwid);
 		this.department = department;
 	}
 
-	Department getDepartment() {
+	public Department getDepartment() {
 		return department;
 	}
 
@@ -35,4 +35,15 @@ class Instructor extends Person {
 
 		return true;
 	}
+	
+	@Override
+  public int hashCode() {
+    int hash=7;
+    
+    hash = 31*hash + name.hashCode();
+    hash = 31*hash + cwid.hashCode();
+    hash = 31*hash + department.hashCode();
+    
+    return hash;
+  }
 }

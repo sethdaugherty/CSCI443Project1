@@ -1,6 +1,7 @@
 package edu.mines.Schedule;
 
 import java.util.ArrayList;
+import java.lang.Double;
 
 /**
  * Represents a course for the purpose of scheduling.
@@ -13,7 +14,7 @@ class Course {
 	private ArrayList<Course> preReqs;
 	private Department department;
 
-	Course(String courseNumber, String courseName, Department department, double numCredits,
+	public Course(String courseNumber, String courseName, Department department, double numCredits,
 			ArrayList<String> textBooks, ArrayList<Course> preReqs) {
 		this.courseNumber = courseNumber;
 		this.courseName = courseName;
@@ -26,27 +27,27 @@ class Course {
 		this.preReqs = preReqs;
 	}
 
-	String getCourseNumber() {
+	public String getCourseNumber() {
 		return courseNumber;
 	}
 
-	String getCourseName() {
+	public String getCourseName() {
 		return courseName;
 	}
 
-	Department getDepartment() {
+	public Department getDepartment() {
 		return department;
 	}
 
-	double getNumCredits() {
+	public double getNumCredits() {
 		return numCredits;
 	}
 
-	ArrayList<String> getTextBooks() {
+	public ArrayList<String> getTextBooks() {
 		return textBooks;
 	}
 
-	ArrayList<Course> getPreReqs() {
+	public ArrayList<Course> getPreReqs() {
 		return preReqs;
 	}
 
@@ -78,5 +79,18 @@ class Course {
 
 		return true;
 	}
+	
+	@Override
+  public int hashCode() {
+    int hash=7;
+    
+    hash = 31*hash + courseName.hashCode();
+    hash = 31*hash + courseNumber.hashCode();
+    hash = 31*hash + new Double(numCredits).hashCode();
+    hash = 31*hash + department.hashCode();
+    hash = 31*hash + textBooks.hashCode();
+    
+    return hash;
+  }
 
 }
