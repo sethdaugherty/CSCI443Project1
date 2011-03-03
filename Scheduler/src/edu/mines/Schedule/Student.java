@@ -56,8 +56,9 @@ class Student
 	@Override
 	public boolean equals(Object obj) {
 		Student s = (Student) obj;
-
-		if (this.getName() != s.getName())
+		if(!(obj instanceof Student))
+			return false;
+		else if (this.getName() != s.getName())
 			return false;
 		else if (this.getCwid() != s.getCwid())
 			return false;
