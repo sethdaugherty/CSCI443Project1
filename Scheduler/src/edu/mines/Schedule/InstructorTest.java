@@ -5,7 +5,8 @@ import junit.framework.TestCase;
 /**
  * Tests {@link Instructor} to ensure it operates correctly.
  */
-public class InstructorTest extends TestCase {
+public class InstructorTest
+		extends TestCase {
 
 	public static final String DEFAULT_INSTRUCTOR_NAME = "Bob Joe";
 	public static final String DEFAULT_INSTRUCTOR_CWID = "12345678";

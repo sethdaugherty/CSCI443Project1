@@ -22,32 +22,30 @@ class TeachingSessionManager {
 
 	/**
 	 * Adds a {@link TeachingSession} to {@link sessions} if the
-	 * {@link Instructor} in the given {@link TeachingSession} is not included
-	 * in another {@link TeachingSession} at the same time and that the
+	 * {@link Instructor} in the given {@link TeachingSession} is not included in
+	 * another {@link TeachingSession} at the same time and that the
 	 * {@link Instructor} is from the same {@link Department} as the
 	 * {@link Course}.
 	 * 
 	 * @param session
 	 * @throws IllegalArgumentException
 	 */
-	void addSession(TeachingSession session)
-			throws IllegalArgumentException {
+	void addSession(TeachingSession session) throws IllegalArgumentException {
 		if (!isInstructorInDepartment(session)) {
 			throw new IllegalArgumentException(
 					"The instructor isn't in the same department as the course");
 		}
 
 		if (hasTimeConflict(session)) {
-			throw new IllegalArgumentException(
-					"The instructor has a time conflict");
+			throw new IllegalArgumentException("The instructor has a time conflict");
 		}
 
 		sessions.add(session);
 	}
 
 	/**
-	 * Make sure the {@link Instructor} in the given {@link TeachingSession} isn't already
-	 * signed up to teach a {@link Course} at the same time.
+	 * Make sure the {@link Instructor} in the given {@link TeachingSession} isn't
+	 * already signed up to teach a {@link Course} at the same time.
 	 * 
 	 * @param session
 	 * @return true if time conflict, false otherwise
@@ -72,18 +70,17 @@ class TeachingSessionManager {
 	}
 
 	/**
-	 * Checks if the {@link Instructor} and the {@link Course} in the session have the same
-	 * {@link Department}.
+	 * Checks if the {@link Instructor} and the {@link Course} in the session have
+	 * the same {@link Department}.
 	 * 
 	 * @param session
-	 * @return true if {@link Instructor} is in the same {@link Department} as
-	 *         the {@link Course}, false otherwise.
+	 * @return true if {@link Instructor} is in the same {@link Department} as the
+	 *         {@link Course}, false otherwise.
 	 */
 	private boolean isInstructorInDepartment(TeachingSession session) {
 		Instructor instructor = session.getInstructor();
 		CourseMeeting meeting = session.getCourseMeeting();
-		if (instructor.getDepartment().equals(
-				meeting.getCourse().getDepartment())) {
+		if (instructor.getDepartment().equals(meeting.getCourse().getDepartment())) {
 			return true;
 		} else {
 			return false;

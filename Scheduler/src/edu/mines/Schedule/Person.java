@@ -6,17 +6,17 @@ package edu.mines.Schedule;
 class Person {
 	protected String name;
 	protected String cwid;
-	
+
 	Person(String name, String cwid) {
 		this.name = name;
 		this.cwid = cwid;
 	}
-	
+
 	String getName() {
 		return name;
 	}
-	
+
 	String getCwid() {
 		return cwid;
-	}	
+	}
 }

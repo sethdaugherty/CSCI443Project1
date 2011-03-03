@@ -3,17 +3,16 @@ package edu.mines.Schedule;
 import java.util.ArrayList;
 
 /**
- * Represents a Student for the purpose of scheduling.
- * Extends {@link Person}.
+ * Represents a Student for the purpose of scheduling. Extends {@link Person}.
  */
-class Student extends Person {
-	Student(String name, String cwid, ArrayList<Major> majors,
-			ArrayList<Course> previousCourses) {
+class Student
+		extends Person {
+	Student(String name, String cwid, ArrayList<Major> majors, ArrayList<Course> previousCourses) {
 		super(name, cwid);
 		this.majors = majors;
 		this.previousCourses = previousCourses;
 	}
-	
+
 	private static final double SOPHMORE_LEVEL = 30;
 	private static final double JUNIOR_LEVEL = 60;
 	private static final double SENIOR_LEVEL = 90;
@@ -35,13 +34,11 @@ class Student extends Person {
 			sum = course.getNumCredits();
 		}
 
-		if(sum < SOPHMORE_LEVEL){
+		if (sum < SOPHMORE_LEVEL) {
 			return "Freshman";
-		}
-		else if(sum < JUNIOR_LEVEL){
+		} else if (sum < JUNIOR_LEVEL) {
 			return "Sophmore";
-		}
-		else if(sum < SENIOR_LEVEL){
+		} else if (sum < SENIOR_LEVEL) {
 			return "Junior";
 		} else
 			return "Senior";
@@ -55,7 +52,7 @@ class Student extends Person {
 		builder.append(cwid);
 		return builder.toString();
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		Student s = (Student) obj;
@@ -64,13 +61,12 @@ class Student extends Person {
 			return false;
 		else if (this.getCwid() != s.getCwid())
 			return false;
-		else if (!this.majors.containsAll(s.getMajor())
-				|| this.majors.size() != s.getMajor().size())
+		else if (!this.majors.containsAll(s.getMajor()) || this.majors.size() != s.getMajor().size())
 			return false;
 		else if (!this.previousCourses.containsAll(s.getCourses())
 				|| this.previousCourses.size() != s.getCourses().size())
 			return false;
-		
+
 		return true;
 	}
 }
