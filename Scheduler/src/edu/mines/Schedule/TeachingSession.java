@@ -9,17 +9,17 @@ class TeachingSession {
 	private Instructor instructor;
 	private CourseMeeting courseMeeting;
 
-	public TeachingSession(Instructor instructor, CourseMeeting meeting) {
+	TeachingSession(Instructor instructor, CourseMeeting meeting) {
 		this.instructor = instructor;
 		this.courseMeeting = meeting;
 
 	}
 
-	public Instructor getInstructor() {
+	Instructor getInstructor() {
 		return instructor;
 	}
 
-	public CourseMeeting getCourseMeeting() {
+	CourseMeeting getCourseMeeting() {
 		return courseMeeting;
 	}
 

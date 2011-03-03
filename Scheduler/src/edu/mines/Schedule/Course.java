@@ -14,12 +14,28 @@ class Course {
 	private ArrayList<Course> preReqs;
 	private Department department;
 
-	public Course(String courseNumber, String courseName, Department department, double numCredits,
+	/**
+	 * We chose not to use the Builder pattern here for 2 reasons 
+	 * 1) There really isn't anything ambiguous about the constructor except for the 
+	 *    first two arguments. The caller is unlikely to be confused. 
+	 * 2) There are no optional parameters. The Builder pattern is most useful when you 
+	 *     have telescoping constructors due to optional arguments, which is not the case
+	 * Since the only real argument in favor of using a Builder is the possible confusion
+	 * over the two string arguments, we decided the extra complexity was unnecessary.
+	 * 
+	 * @param courseNumber
+	 * @param courseName
+	 * @param department
+	 * @param numCredits
+	 * @param textBooks
+	 * @param preReqs
+	 */
+	Course(String courseNumber, String courseName, Department department, double numCredits,
 			ArrayList<String> textBooks, ArrayList<Course> preReqs) {
 		this.courseNumber = courseNumber;
 		this.courseName = courseName;
 		this.department = department;
-		if(numCredits >= 0)
+		if (numCredits >= 0)
 			this.numCredits = numCredits;
 		else
 			throw new IllegalArgumentException("Cannot have negative number of credits");
@@ -27,27 +43,27 @@ class Course {
 		this.preReqs = preReqs;
 	}
 
-	public String getCourseNumber() {
+	String getCourseNumber() {
 		return courseNumber;
 	}
 
-	public String getCourseName() {
+	String getCourseName() {
 		return courseName;
 	}
 
-	public Department getDepartment() {
+	Department getDepartment() {
 		return department;
 	}
 
-	public double getNumCredits() {
+	double getNumCredits() {
 		return numCredits;
 	}
 
-	public ArrayList<String> getTextBooks() {
+	ArrayList<String> getTextBooks() {
 		return textBooks;
 	}
 
-	public ArrayList<Course> getPreReqs() {
+	ArrayList<Course> getPreReqs() {
 		return preReqs;
 	}
 
@@ -79,18 +95,18 @@ class Course {
 
 		return true;
 	}
-	
+
 	@Override
-  public int hashCode() {
-    int hash=7;
-    
-    hash = 31*hash + courseName.hashCode();
-    hash = 31*hash + courseNumber.hashCode();
-    hash = 31*hash + new Double(numCredits).hashCode();
-    hash = 31*hash + department.hashCode();
-    hash = 31*hash + textBooks.hashCode();
-    
-    return hash;
-  }
+	public int hashCode() {
+		int hash = 7;
+
+		hash = 31 * hash + courseName.hashCode();
+		hash = 31 * hash + courseNumber.hashCode();
+		hash = 31 * hash + new Double(numCredits).hashCode();
+		hash = 31 * hash + department.hashCode();
+		hash = 31 * hash + textBooks.hashCode();
+
+		return hash;
+	}
 
 }

@@ -10,7 +10,7 @@ import java.util.Date;
  * Operates an interface for scheduling {@link Student}s and {@link Instructor}s
  * to various {@link Course}s
  */
-public class Scheduler {
+class Scheduler {
 	ArrayList<Student> studentList;
 	ArrayList<Instructor> instructorList;
 	ArrayList<CourseMeeting> courseMeetingList;
@@ -18,7 +18,7 @@ public class Scheduler {
 	EnrollmentManager enrollmentManager;
 	TeachingSessionManager teachingSessionManager;
 
-	public Scheduler() {
+	Scheduler() {
 		studentList = new ArrayList<Student>();
 		instructorList = new ArrayList<Instructor>();
 		courseMeetingList = new ArrayList<CourseMeeting>();

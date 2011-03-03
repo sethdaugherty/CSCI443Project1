@@ -3,7 +3,7 @@ package edu.mines.Schedule;
 /**
  * Represents a Major for the purpose of scheduling. ENUM.
  */
-public enum Major {
+enum Major {
 	CompSci("Computer Science"), Mining("Mining"), CivilEngineering("Civil Engineering"), MechanicalEngineering(
 			"Mechanical Engineer"), ElectricalEngineering("Electrical Engineering"), Math("Mathematics"), Physics(
 			"Physics");
@@ -14,7 +14,7 @@ public enum Major {
 		this.name = name;
 	}
 
-	public String getName() {
+	String getName() {
 		return name;
 	}
 }

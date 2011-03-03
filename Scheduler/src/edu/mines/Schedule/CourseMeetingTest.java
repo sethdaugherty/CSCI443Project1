@@ -9,15 +9,15 @@ import junit.framework.TestCase;
 public class CourseMeetingTest extends TestCase {
 
 	public static final int DEFAULT_MEETING_DATE_NUMBER = 1262343600;
-	public static final int DEFAULT_MEETING_LENGTH = 50;
-	public static final int DEFAULT_MEETING_LENGTH_2 = 2 * DEFAULT_MEETING_LENGTH;
+	static final int DEFAULT_MEETING_LENGTH = 50;
+	static final int DEFAULT_MEETING_LENGTH_2 = 2 * DEFAULT_MEETING_LENGTH;
 	// Jan 1, 2010 at 11:00 am
-	public static final Date DEFAULT_MEETING_TIME = new Date(DEFAULT_MEETING_DATE_NUMBER);
-	public static final Date DEFAULT_MEETING_TIME_EARLY = new Date(DEFAULT_MEETING_DATE_NUMBER
+	static final Date DEFAULT_MEETING_TIME = new Date(DEFAULT_MEETING_DATE_NUMBER);
+	static final Date DEFAULT_MEETING_TIME_EARLY = new Date(DEFAULT_MEETING_DATE_NUMBER
 			- CourseMeeting.getMilliSeconds(DEFAULT_MEETING_LENGTH / 2));
-	public static final Date DEFAULT_MEETING_TIME_LATER = new Date(DEFAULT_MEETING_DATE_NUMBER
+	static final Date DEFAULT_MEETING_TIME_LATER = new Date(DEFAULT_MEETING_DATE_NUMBER
 			+ CourseMeeting.getMilliSeconds(DEFAULT_MEETING_LENGTH / 2));
-	public static final Date DEFAULT_MEETING_TIME_OTHER = new Date(DEFAULT_MEETING_DATE_NUMBER
+	static final Date DEFAULT_MEETING_TIME_OTHER = new Date(DEFAULT_MEETING_DATE_NUMBER
 			- CourseMeeting.getMilliSeconds(DEFAULT_MEETING_LENGTH * 2));
 
 	/**

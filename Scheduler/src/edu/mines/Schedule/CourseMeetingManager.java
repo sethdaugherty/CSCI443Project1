@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * 
  * SINGLETON.
  */
-public class CourseMeetingManager {
+class CourseMeetingManager {
 	private ArrayList<CourseMeeting> meetingList;
 	private static CourseMeetingManager theInstance = null;
 
@@ -17,7 +17,7 @@ public class CourseMeetingManager {
 		meetingList = new ArrayList<CourseMeeting>();
 	}
 
-	public static CourseMeetingManager getInstance() {
+	static CourseMeetingManager getInstance() {
 		if (theInstance == null) {
 			theInstance = new CourseMeetingManager();
 		}
@@ -47,18 +47,18 @@ public class CourseMeetingManager {
 	 * @param meeting
 	 * @throws IllegalArgumentException
 	 */
-	public void addCourseMeeting(CourseMeeting meeting) throws IllegalArgumentException {
+	void addCourseMeeting(CourseMeeting meeting) throws IllegalArgumentException {
 		if (hasTimeConflict(meeting)) {
 			throw new IllegalArgumentException("Course meetings have a time conflict");
 		}
 		meetingList.add(meeting);
 	}
 
-	public void clearData() {
+	void clearData() {
 		meetingList = new ArrayList<CourseMeeting>();
 	}
 
-	public ArrayList<CourseMeeting> getCourseMeetingList() {
+	ArrayList<CourseMeeting> getCourseMeetingList() {
 		return new ArrayList<CourseMeeting>(meetingList);
 	}
 }

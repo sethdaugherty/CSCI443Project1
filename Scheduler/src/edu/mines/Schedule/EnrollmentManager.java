@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * 
  * SINGLETON.
  */
-public class EnrollmentManager {
+class EnrollmentManager {
 	private static EnrollmentManager theInstance = null;
 
 	private ArrayList<Enrollment> enrollments;
@@ -24,7 +24,7 @@ public class EnrollmentManager {
 		enrollments = new ArrayList<Enrollment>();
 	}
 
-	public static EnrollmentManager getInstance() {
+	static EnrollmentManager getInstance() {
 		if (theInstance == null) {
 			theInstance = new EnrollmentManager();
 		}
@@ -40,7 +40,7 @@ public class EnrollmentManager {
 	 * @param enrollment
 	 * @throws IllegalArgumentException
 	 */
-	public void addEnrollment(Enrollment enrollment) throws IllegalArgumentException {
+	void addEnrollment(Enrollment enrollment) throws IllegalArgumentException {
 		// Check for pre-reqs
 		if (!hasPreReqs(enrollment))
 			throw new IllegalArgumentException("Must have the required pre-reqs");
@@ -61,7 +61,7 @@ public class EnrollmentManager {
 			throw new IllegalArgumentException("Cannot have a student enrolled in a full class");
 	}
 
-	public ArrayList<Enrollment> getEnrollments() {
+	ArrayList<Enrollment> getEnrollments() {
 		return enrollments;
 	}
 

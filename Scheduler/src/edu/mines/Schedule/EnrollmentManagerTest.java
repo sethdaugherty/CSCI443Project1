@@ -6,18 +6,18 @@ import junit.framework.TestCase;
  * Tests {@link EnrollmentManager} to ensure it operates correctly.
  */
 public class EnrollmentManagerTest extends TestCase {
-	public static final Student DEFAULT_ENROLLMENT_MANAGER_STUDENT = StudentTest.createStudent();
-	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT = EnrollmentTest
+	static final Student DEFAULT_ENROLLMENT_MANAGER_STUDENT = StudentTest.createStudent();
+	static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT = EnrollmentTest
 			.createEnrollment();
-	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_2 = EnrollmentTest
+	static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_2 = EnrollmentTest
 			.createEnrollment2();
-	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_3 = EnrollmentTest
+	static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_3 = EnrollmentTest
 			.createEnrollment3();
-	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_WITH_INVALID_PREREQ = EnrollmentTest
+	static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_WITH_INVALID_PREREQ = EnrollmentTest
 			.createEnrollmentWithInvalidPreReq();
-	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_WITH_VALID_PREREQ = EnrollmentTest
+	static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_WITH_VALID_PREREQ = EnrollmentTest
 			.createEnrollmentWithValidPreReq();
-	public static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_COURSE_CONFLICT = EnrollmentTest
+	static final Enrollment DEFAULT_ENROLLMENT_MANAGER_ENROLLMENT_COURSE_CONFLICT = EnrollmentTest
 			.createEnrollmentNoConflict();
 
 	/**
