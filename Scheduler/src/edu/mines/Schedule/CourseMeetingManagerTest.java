@@ -9,7 +9,7 @@ import junit.framework.TestCase;
  */
 public class CourseMeetingManagerTest extends TestCase {
 
-	public void testAddCourseMeeting() throws Exception {
+	public void testAddCourseMeeting() {
 		CourseMeeting meeting = CourseMeetingTest.createMeeting();
 		CourseMeeting meeting2 = CourseMeetingTest.createMeetingOther();
 
