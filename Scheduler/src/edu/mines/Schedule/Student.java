@@ -7,9 +7,8 @@ import java.util.Set;
  * Represents a Student for the purpose of scheduling. Extends {@link Person}.
  */
 
-class Student
-		extends Person {
-		public Student(String name, String cwid, Set<Major> majors, Set<Course> previousCourses) {
+final class Student extends Person {
+	Student(String name, String cwid, Set<Major> majors, Set<Course> previousCourses) {
 		super(name, cwid);
 		this.majors = new HashSet<Major>(majors);
 		this.previousCourses = new HashSet<Course>(previousCourses);
@@ -23,11 +22,11 @@ class Student
 	private final Set<Course> previousCourses;
 
 
-	public Set<Major> getMajor() {
+	Set<Major> getMajor() {
 		return new HashSet<Major>(majors);
 	}
 
-	public Set<Course> getCourses() {
+	Set<Course> getCourses() {
 		return new HashSet<Course>(previousCourses);
 	}
 
