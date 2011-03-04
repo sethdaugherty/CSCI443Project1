@@ -90,6 +90,7 @@ class Scheduler {
 	}
 
 	private void printMenu() {
+		System.out.println(""); // Print an empty line
 		System.out.println("This interface allows you to do the following:");
 		System.out.println("[1] Print this menu");
 		System.out.println("[2] List Students");
@@ -141,6 +142,7 @@ class Scheduler {
 		TeachingSession session = new TeachingSession(instructor, meeting);
 		teachingSessionManager.addSession(session);
 		System.out.println("Added instructor to course");
+		printMenu();
 	}
 
 	private void addStudent() throws IOException {
@@ -179,14 +181,14 @@ class Scheduler {
 		Enrollment enrollment = new Enrollment(student, meeting);
 		enrollmentManager.addEnrollment(enrollment);
 		System.out.println("Added student to course");
-
+		printMenu();
 	}
 
 	private void listCourses() {
-		;
 		for (CourseMeeting meeting : courseMeetingList) {
 			System.out.println(meeting);
 		}
+		printMenu();
 	}
 
 	private void listInstructors() {
@@ -194,6 +196,7 @@ class Scheduler {
 		for (Instructor instructor : instructorList) {
 			System.out.println(instructor);
 		}
+		printMenu();
 	}
 
 	private void listStudents() {
@@ -201,6 +204,7 @@ class Scheduler {
 		for (Student student : studentList) {
 			System.out.println(student);
 		}
+		printMenu();
 	}
 
 	private void handleChoice(int choice) throws Exception {

@@ -9,6 +9,11 @@ import junit.framework.TestCase;
  */
 public class CourseMeetingManagerTest extends TestCase {
 
+	public void clearData() {
+		CourseMeetingManager manager = CourseMeetingManager.getInstance();
+		manager.clearData();
+	}
+	
 	public void testAddCourseMeeting() {
 		CourseMeeting meeting = CourseMeetingTest.createMeeting();
 		CourseMeeting meeting2 = CourseMeetingTest.createMeetingOther();
@@ -21,16 +26,7 @@ public class CourseMeetingManagerTest extends TestCase {
 
 		// Lets make sure the course meeting is now in the manager's list
 		Set<CourseMeeting> meetings = manager.getCourseMeetingList();
-		boolean found = false;
-		for (CourseMeeting courseMeeting : meetings) {
-			if (courseMeeting.equals(meeting)) {
-				found = true;
-			}
-		}
-
-		if (!found) {
-			fail("CourseMeeting wasn't in the list");
-		}
+		assertTrue("CourseMeeting wasn't in the list", meetings.contains(meeting));
 	}
 
 	public void testAddConflictCourseMeeting() {
@@ -50,15 +46,6 @@ public class CourseMeetingManagerTest extends TestCase {
 
 		// Lets make sure the course meeting is now in the manager's list
 		Set<CourseMeeting> meetings = manager.getCourseMeetingList();
-		boolean found = false;
-		for (CourseMeeting courseMeeting : meetings) {
-			if (courseMeeting.equals(meeting)) {
-				found = true;
-			}
-		}
-
-		if (!found) {
-			fail("CourseMeeting wasn't in the list");
-		}
+		assertTrue("CourseMeeting wasn't in the list", meetings.contains(meeting));
 	}
 }
