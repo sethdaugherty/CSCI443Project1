@@ -1,25 +1,31 @@
 package edu.mines.Schedule;
 
+import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Operates an interface for scheduling {@link Student}s and {@link Instructor}s
  * to various {@link Course}s
  */
+
 class Scheduler {
-	ArrayList<Student> studentList;
-	ArrayList<Instructor> instructorList;
-	ArrayList<CourseMeeting> courseMeetingList;
+  List<Student> studentList;
+  List<Instructor> instructorList;
+  List<CourseMeeting> courseMeetingList;
+
 	CourseMeetingManager meetingManager;
 	EnrollmentManager enrollmentManager;
 	TeachingSessionManager teachingSessionManager;
 
+
 	Scheduler() {
-		studentList = new ArrayList<Student>();
+	  studentList = new ArrayList<Student>();
 		instructorList = new ArrayList<Instructor>();
 		courseMeetingList = new ArrayList<CourseMeeting>();
 
@@ -40,8 +46,8 @@ class Scheduler {
 	}
 
 	private void setupStudents() {
-		ArrayList<Major> major = new ArrayList<Major>();
-		ArrayList<Course> preReqs = new ArrayList<Course>();
+		Set<Major> major = new HashSet<Major>();
+		Set<Course> preReqs = new HashSet<Course>();
 		major.add(Major.CompSci);
 		Student student1 = new Student("Hugh Mann", "44886266", major, preReqs);
 		Student student2 = new Student("Justin Case", "54863295", major, preReqs);
@@ -56,8 +62,8 @@ class Scheduler {
 	}
 
 	private void setupCourseMeetings() {
-		ArrayList<Course> preReqs = new ArrayList<Course>();
-		ArrayList<String> books1 = new ArrayList<String>();
+	  Set<Course> preReqs = new HashSet<Course>();
+	  Set<String> books1 = new HashSet<String>();
 		books1.add("Refactoring to patterns");
 		books1.add("Effective Java");
 		Course course1 = new Course("443", "Advanced Java", Department.CS, 3, books1, preReqs);
@@ -66,18 +72,18 @@ class Scheduler {
 		CourseMeeting meeting1 = new CourseMeeting(course1, Classroom.CTLM102, date1, 50);
 		courseMeetingList.add(meeting1);
 
-		Course course2 = new Course("101", "Intro to Computer Science", Department.CS, 3, null, preReqs);
+		Course course2 = new Course("101", "Intro to Computer Science", Department.CS, 3, books1, preReqs);
 		CourseMeeting meeting2 = new CourseMeeting(course2, Classroom.GC249, date1, 50);
 		courseMeetingList.add(meeting2);
 
 		long jan1_2011_12PM = new Long("1293908400000");
 		Date date2 = new Date(jan1_2011_12PM);
-		Course course3 = new Course("261", "Programming Concepts", Department.CS, 3, null, preReqs);
+		Course course3 = new Course("261", "Programming Concepts", Department.CS, 3, books1, preReqs);
 		CourseMeeting meeting3 = new CourseMeeting(course3, Classroom.CO209, date2, 50);
 		courseMeetingList.add(meeting3);
 
 		Course course4 = new Course("200", "Physics I : Introductory Mechanics", Department.PHYS, 4.5,
-				null, preReqs);
+				books1, preReqs);
 		CourseMeeting meeting4 = new CourseMeeting(course4, Classroom.CTLM102, date2, 50);
 		courseMeetingList.add(meeting4);
 
@@ -139,7 +145,7 @@ class Scheduler {
 
 	private void addStudent() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Enter the number of an instructor:");
+		System.out.println("Enter the number of a student:");
 		int x = 0;
 		for (Student student : studentList) {
 			System.out.println(x + " " + student.toString());

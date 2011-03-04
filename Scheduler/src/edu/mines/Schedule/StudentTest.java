@@ -1,6 +1,7 @@
 package edu.mines.Schedule;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import junit.framework.TestCase;
 
 /**
@@ -11,13 +12,14 @@ public class StudentTest
 
 	static final String DEFAULT_STUDENT_NAME = "Bob Joe";
 	static final String DEFAULT_STUDENT_CWID = "12345678";
-	static final ArrayList<Major> DEFAULT_STUDENT_MAJORS = new ArrayList<Major>();
+	static final Set<Major> DEFAULT_STUDENT_MAJORS = new HashSet<Major>();
 	static final Major DEFAULT_STUDENT_MAJOR = Major.CompSci;
-	static final ArrayList<Course> DEFAULT_STUDENT_PREV_COURSES = CourseTest.DEFAULT_PRE_REQS;
-	static final ArrayList<Course> DEFAULT_STUDENT_PREV_COURSES_2 = CourseTest.DEFAULT_PRE_REQS_2;
-	static final ArrayList<Course> DEFAULT_STUDENT_PREV_COURSES_3 = CourseTest.DEFAULT_PRE_REQS_3;
-	static final ArrayList<Course> DEFAULT_STUDENT_PREV_COURSES_4 = CourseTest.DEFAULT_PRE_REQS_4;
-	static final ArrayList<Course> DEFAULT_STUDENT_PREV_COURSES_5 = CourseTest.DEFAULT_PRE_REQS_5;
+	static final Set<Course> DEFAULT_STUDENT_PREV_COURSES = CourseTest.DEFAULT_PRE_REQS;
+	static final Set<Course> DEFAULT_STUDENT_PREV_COURSES_2 = CourseTest.DEFAULT_PRE_REQS_2;
+	static final Set<Course> DEFAULT_STUDENT_PREV_COURSES_3 = CourseTest.DEFAULT_PRE_REQS_3;
+	static final Set<Course> DEFAULT_STUDENT_PREV_COURSES_4 = CourseTest.DEFAULT_PRE_REQS_4;
+	static final Set<Course> DEFAULT_STUDENT_PREV_COURSES_5 = CourseTest.DEFAULT_PRE_REQS_5;
+
 	static {
 		DEFAULT_STUDENT_MAJORS.add(DEFAULT_STUDENT_MAJOR);
 		DEFAULT_STUDENT_PREV_COURSES_2.add(CourseTest.DEFAULT_COURSE);

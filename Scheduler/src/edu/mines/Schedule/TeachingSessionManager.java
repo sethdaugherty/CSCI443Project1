@@ -1,6 +1,7 @@
 package edu.mines.Schedule;
 
-import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
 
 /**
  * Manages all {@link TeachingSession} instances. Allows addition of
@@ -14,10 +15,10 @@ import java.util.ArrayList;
 class TeachingSessionManager {
 	private static TeachingSessionManager theInstance = null;
 
-	private ArrayList<TeachingSession> sessions;
+	private Set<TeachingSession> sessions;
 
 	private TeachingSessionManager() {
-		sessions = new ArrayList<TeachingSession>();
+		sessions = new HashSet<TeachingSession>();
 	}
 
 	/**
@@ -94,11 +95,11 @@ class TeachingSessionManager {
 		return theInstance;
 	}
 
-	ArrayList<TeachingSession> getSessions() {
-		return new ArrayList<TeachingSession>(sessions);
+	public Set<TeachingSession> getSessions() {
+		return new HashSet<TeachingSession>(sessions);
 	}
 
-	void clearData() {
-		sessions = new ArrayList<TeachingSession>();
+	public void clearData() {
+		sessions = new HashSet<TeachingSession>();
 	}
 }

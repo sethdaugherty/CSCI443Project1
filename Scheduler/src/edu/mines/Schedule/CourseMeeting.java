@@ -11,6 +11,9 @@ import java.util.Date;
  * 
  * Also, includes method to add to the number of currently enrolled students,
  * for the purpose of ensuring the Classroom is not full.
+ * 
+ * Left Mutable, because CourseMeetings can potentially change Classrooms or
+ * change meeting time without requiring a new object to be created
  */
 class CourseMeeting {
   private Course course;

@@ -1,6 +1,7 @@
 package edu.mines.Schedule;
 
-import java.util.ArrayList;
+import java.util.Set;
+
 import junit.framework.TestCase;
 
 /**
@@ -19,7 +20,7 @@ public class CourseMeetingManagerTest extends TestCase {
 		manager.addCourseMeeting(meeting2);
 
 		// Lets make sure the course meeting is now in the manager's list
-		ArrayList<CourseMeeting> meetings = manager.getCourseMeetingList();
+		Set<CourseMeeting> meetings = manager.getCourseMeetingList();
 		boolean found = false;
 		for (CourseMeeting courseMeeting : meetings) {
 			if (courseMeeting.equals(meeting)) {
@@ -48,7 +49,7 @@ public class CourseMeetingManagerTest extends TestCase {
 		}
 
 		// Lets make sure the course meeting is now in the manager's list
-		ArrayList<CourseMeeting> meetings = manager.getCourseMeetingList();
+		Set<CourseMeeting> meetings = manager.getCourseMeetingList();
 		boolean found = false;
 		for (CourseMeeting courseMeeting : meetings) {
 			if (courseMeeting.equals(meeting)) {
