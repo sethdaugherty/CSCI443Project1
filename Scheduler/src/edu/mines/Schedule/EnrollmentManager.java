@@ -63,7 +63,7 @@ class EnrollmentManager {
 	}
 
 
-	public Set<Enrollment> getEnrollments() {
+	Set<Enrollment> getEnrollments() {
 		return enrollments;
 	}
 

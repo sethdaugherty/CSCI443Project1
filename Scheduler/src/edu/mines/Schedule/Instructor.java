@@ -4,7 +4,7 @@ package edu.mines.Schedule;
  * Represents an Instructor for the purpose of scheduling. Extends
  * {@link Person}.
  */
-class Instructor extends Person {
+final class Instructor extends Person {
 	private final Department department;
 
 	Instructor(String name, String cwid, Department department) {

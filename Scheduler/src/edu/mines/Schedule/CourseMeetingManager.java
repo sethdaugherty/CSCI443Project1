@@ -57,11 +57,11 @@ class CourseMeetingManager {
 		meetingList.add(meeting);
 	}
 
-	public void clearData() {
+	void clearData() {
 		meetingList = new HashSet<CourseMeeting>();
 	}
 
-	public Set<CourseMeeting> getCourseMeetingList() {
+	Set<CourseMeeting> getCourseMeetingList() {
 		return new HashSet<CourseMeeting>(meetingList);
 	}
 }
